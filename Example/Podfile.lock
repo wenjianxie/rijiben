@@ -1,0 +1,46 @@
+PODS:
+  - JXPhotoBrowser (3.1.5)
+  - Kingfisher (6.3.1)
+  - QuicklySwift (0.9.0):
+    - SnapKit
+  - RZColorfulSwift (0.5.0)
+  - RZRichTextView (2.2.0):
+    - Kingfisher
+    - QuicklySwift
+    - RZColorfulSwift
+    - SnapKit
+  - SnapKit (5.6.0)
+  - TZImagePickerController (3.8.7):
+    - TZImagePickerController/Basic (= 3.8.7)
+    - TZImagePickerController/Location (= 3.8.7)
+  - TZImagePickerController/Basic (3.8.7)
+  - TZImagePickerController/Location (3.8.7)
+
+DEPENDENCIES:
+  - JXPhotoBrowser
+  - Kingfisher
+  - RZRichTextView
+  - TZImagePickerController
+
+SPEC REPOS:
+  trunk:
+    - JXPhotoBrowser
+    - Kingfisher
+    - QuicklySwift
+    - RZColorfulSwift
+    - RZRichTextView
+    - SnapKit
+    - TZImagePickerController
+
+SPEC CHECKSUMS:
+  JXPhotoBrowser: a6d745f5711bde79b02ba29165e2456ab5bde476
+  Kingfisher: 016c8b653a35add51dd34a3aba36b580041acc74
+  QuicklySwift: 817e8e5f55ea6bd1932b02db75b1af515c3ace81
+  RZColorfulSwift: c4cb0c4668a77a9a1b5cb1a884f6ae20f2be3f58
+  RZRichTextView: a73c4e8e2ffb698494bb93907babf8698edd385f
+  SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
+  TZImagePickerController: 5f35bb7266552e36ca834bafa955b869fe086124
+
+PODFILE CHECKSUM: 04df43e7c2eb510e2ede06af6e4471d70ac338af
+
+COCOAPODS: 1.15.2
