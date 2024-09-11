@@ -181,6 +181,8 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/QuicklySwift/QuicklySwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RZColorfulSwift/RZColorfulSwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RZRichTextView/RZRichTextView.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Realm/Realm.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/TZImagePickerController/TZImagePickerController.framework"
 fi
@@ -190,6 +192,8 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/QuicklySwift/QuicklySwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RZColorfulSwift/RZColorfulSwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RZRichTextView/RZRichTextView.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Realm/Realm.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/TZImagePickerController/TZImagePickerController.framework"
 fi

@@ -3,6 +3,11 @@ PODS:
   - Kingfisher (6.3.1)
   - QuicklySwift (0.9.0):
     - SnapKit
+  - Realm (10.49.2):
+    - Realm/Headers (= 10.49.2)
+  - Realm/Headers (10.49.2)
+  - RealmSwift (10.49.2):
+    - Realm (= 10.49.2)
   - RZColorfulSwift (0.5.0)
   - RZRichTextView (2.2.0):
     - Kingfisher
@@ -19,6 +24,7 @@ PODS:
 DEPENDENCIES:
   - JXPhotoBrowser
   - Kingfisher
+  - RealmSwift
   - RZRichTextView
   - TZImagePickerController
 
@@ -27,6 +33,8 @@ SPEC REPOS:
     - JXPhotoBrowser
     - Kingfisher
     - QuicklySwift
+    - Realm
+    - RealmSwift
     - RZColorfulSwift
     - RZRichTextView
     - SnapKit
@@ -36,11 +44,13 @@ SPEC CHECKSUMS:
   JXPhotoBrowser: a6d745f5711bde79b02ba29165e2456ab5bde476
   Kingfisher: 016c8b653a35add51dd34a3aba36b580041acc74
   QuicklySwift: 817e8e5f55ea6bd1932b02db75b1af515c3ace81
+  Realm: c1a96376972e5f6c26276a0cd6dee15eeefaf53c
+  RealmSwift: db6ea9e15607653352baa42321bd9586850b7f04
   RZColorfulSwift: c4cb0c4668a77a9a1b5cb1a884f6ae20f2be3f58
   RZRichTextView: a73c4e8e2ffb698494bb93907babf8698edd385f
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   TZImagePickerController: 5f35bb7266552e36ca834bafa955b869fe086124
 
-PODFILE CHECKSUM: 04df43e7c2eb510e2ede06af6e4471d70ac338af
+PODFILE CHECKSUM: e1b2bb05feed8d39743d5b1c75b729aa6cbd12de
 
 COCOAPODS: 1.15.2

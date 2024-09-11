@@ -61,6 +61,7 @@ open class RZRichFontStyleView: UIView {
                 }
         }
         let fontstyleStackView = [B, I, U, S].qjoined(aixs: .horizontal, spacing: 10, align: .center, distribution: .equalSpacing)
+        
         // 字号
         let label = UILabel().qtext("字号").qfont(.systemFont(ofSize: 16))
         let size_count = Int((qscreenwidth - 40) / 70)
@@ -85,6 +86,7 @@ open class RZRichFontStyleView: UIView {
             }.qjoined(aixs: .horizontal, spacing: 10, align: .top, distribution: .equalSpacing)
         }.qjoined(aixs: .vertical, spacing: 10, align: .leading, distribution: .equalSpacing)
         self.size_stackView = sizeStackView
+        
         
         // 颜色
         let label1 = UILabel().qtext("颜色").qfont(.systemFont(ofSize: 16))

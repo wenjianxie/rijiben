@@ -52,6 +52,30 @@ class NormalViewController: UIViewController {
                     return
                 }
                 let html = self.textView.code2html()
+                
+                
+                let article = Article()
+                article.title = textView.text
+                
+                // 取第一张首图
+                for(index,obj) in attachments.enumerated() {
+                    
+                    if obj.type == .image {
+                        
+                        
+                        if let asset = obj.asset {
+                            RZRichTextViewModel.saveImageFromAsset(asset: asset) { url in
+                                
+                                article.data = url
+                                
+                                RealmManager.shared.saveObjct(obj: article)
+                                
+                                print("保存成功")
+                            }
+                        }
+                    }
+                }
+                
                 print("\(html)")
             }
         /// 上传完成时，可以点击

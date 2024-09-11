@@ -8,6 +8,7 @@ target 'RZRichTextView_Example' do
   pod 'Kingfisher'
   
   pod 'JXPhotoBrowser'
+	pod 'RealmSwift'
   
   target 'RZRichTextView_Tests' do
     inherit! :search_paths
@@ -22,5 +23,7 @@ target 'RZRichTextView_Example' do
 #      end
 #    end
 #  end
+
+
 
 end

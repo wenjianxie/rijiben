@@ -49,7 +49,7 @@ public extension RZRichTextViewModel {
         let viewModel = RZRichTextViewModel.init()
         viewModel.canEdit = edit
         /// 链接颜色
-        viewModel.defaultLinkTypingAttributes = [.foregroundColor: UIColor.qhex(0x307bf6), .underlineColor: UIColor.qhex(0x307bf6), .underlineStyle: NSUnderlineStyle.styleSingle.rawValue]
+        viewModel.defaultLinkTypingAttributes = [.foregroundColor: UIColor.qhex(0x307bf6), .underlineColor: UIColor.qhex(0x307bf6), .underlineStyle: NSUnderlineStyle.single.rawValue]
         /// 显示音频文件名字
 //        viewModel.showAudioName = false
         /// 音频高度
@@ -106,21 +106,12 @@ public extension RZRichTextViewModel {
                     }
 
                 case .upload(let info): // 上传 以及点击重新上传时，将会执行
-                    // FIXME: 此处自行实现上传功能，通过info获取里边的image、asset、filePath， 上传的进度需要设置到info.uploadStatus
-                    UploadTaskTest.uploadFile(id: info, testVM: info) { [weak info] progress in
-                        if progress < 1 {
-                            info?.uploadStatus.accept(.uploading(progress: progress))
-                        } else {
-                            info?.uploadStatus.accept(.complete(success: true, info: "上传完成"))
-                            switch info?.type ?? .image {
-                            case .image: info?.src = "/Users/rztime/Downloads/123.jpeg"
-                            case .audio: info?.src = "/Users/rztime/Downloads/123.m4a"
-                            case .video:
-                                info?.src = "/Users/rztime/Downloads/123.mp4"
-                                info?.poster = "/Users/rztime/Downloads/123.jpeg"
-                            }
-                        }
-                    }
+                    RZRichTextViewModel.handleUpload(info: info)
+                    
+                  
+        
+    
+                    
                 }
             }, disposebag: info.dispose)
         }
@@ -191,6 +182,93 @@ public extension RZRichTextViewModel {
         return viewModel
     }
     
+   class func handleUpload(info: RZAttachmentInfo) {
+        switch info.type {
+        case .image:
+            if let asset = info.asset {
+                saveImageFromAsset(asset: asset) { url in
+                    info.data = url
+                    // 进一步操作，比如上传
+                    info.uploadStatus.accept(.complete(success: true, info: "上传完成"))
+                }
+            }
+            
+        case .video:
+            if let asset = info.asset {
+                saveVideoFromAsset(asset: asset) { url in
+                    info.src = url?.absoluteString
+                    // 进一步操作，比如上传
+                    info.uploadStatus.accept(.complete(success: true, info: "上传完成"))
+                }
+            }
+
+        case .audio:
+//            if let filePath = info.filePath {
+//                saveAudioFromAsset(filePath: filePath) { url in
+//                    info.src = url?.absoluteString
+//                    // 进一步操作，比如上传
+//                }
+//            }
+            break
+        default:
+            break
+        }
+    }
+    
+  class  func saveAudioFromAsset(filePath: String, completion: @escaping (URL?) -> Void) {
+        let localURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(UUID().uuidString + ".m4a")
+        
+        do {
+            try FileManager.default.copyItem(atPath: filePath, toPath: localURL.path)
+            completion(localURL)
+        } catch {
+            print("音频保存失败: \(error.localizedDescription)")
+            completion(nil)
+        }
+    }
+    
+    class func saveVideoFromAsset(asset: PHAsset, completion: @escaping (URL?) -> Void) {
+        let options = PHVideoRequestOptions()
+        options.deliveryMode = .automatic
+        
+        PHImageManager.default().requestAVAsset(forVideo: asset, options: options) { avAsset, _, _ in
+            guard let urlAsset = avAsset as? AVURLAsset else {
+                completion(nil)
+                return
+            }
+            
+            do {
+                // 保存视频到本地
+                let fileName = UUID().uuidString + ".mp4"
+                let localURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(fileName)
+                try FileManager.default.copyItem(at: urlAsset.url, to: localURL)
+                completion(localURL)  // 返回文件URL
+            } catch {
+                print("视频保存失败: \(error.localizedDescription)")
+                completion(nil)
+            }
+        }
+    }
+    
+    
+    class func saveImageFromAsset(asset: PHAsset, completion: @escaping (Data?) -> Void) {
+        let options = PHImageRequestOptions()
+        options.isSynchronous = false
+        options.deliveryMode = .highQualityFormat
+        
+        PHImageManager.default().requestImageDataAndOrientation(for: asset, options: options) { imageData, _, _, _ in
+            guard let data = imageData else {
+                completion(nil)
+                return
+            }
+            completion(data)  // 返回文件URL
+        }
+    }
+
+
+
+
+    
    @objc func playerDidFinishPlaying(notification: Notification) {
        
        print("这里之心攻略")
@@ -207,7 +285,7 @@ class UploadTaskTest {
     ///  模拟上传，testVM主要用于释放timer
     class func uploadFile(id: Any, testVM: NSObject, progress:((_ progress: CGFloat) -> Void)?) {
         var p: CGFloat = 0
-        Timer.qtimer(interval: 0.5, target: testVM, repeats: true, mode: .commonModes) { timer in
+        Timer.qtimer(interval: 0.5, target: testVM, repeats: true, mode:.common) { timer in
             p += 0.1
             progress?(p)
             if p >= 1 {

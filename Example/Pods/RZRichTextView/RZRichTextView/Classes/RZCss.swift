@@ -227,6 +227,7 @@ public extension NSTextAttachment {
 public extension UIFont {
     /// 普通字体
     static var rznormalFont = UIFont.systemFont(ofSize: 16)
+    
     /// 斜体
     static var rzitalicFont = UIFont.init(descriptor: .init(name: ".AppleSystemUIFontItalic", matrix: CGAffineTransform.init(1, 0, 0.2, 1, 0, 0)), size: 16)
     /// 粗体

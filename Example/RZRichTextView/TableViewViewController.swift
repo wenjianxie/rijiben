@@ -60,7 +60,7 @@ class TestTextCell : UITableViewCell {
     let textView = RZRichTextView.init(frame: .init(x: 15, y: 15, width: 384, height: 44), viewModel: .shared(edit: false))
     var reload: ((_ indexPath: IndexPath?) -> Void)?
     var indexPath: IndexPath = .init(row: 0, section: 0)
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.contentView.addSubview(textView)
         self.contentView.snp.makeConstraints { make in

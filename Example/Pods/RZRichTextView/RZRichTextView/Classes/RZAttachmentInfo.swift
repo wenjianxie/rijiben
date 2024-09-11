@@ -70,6 +70,7 @@ public class RZAttachmentInfo: NSObject {
     public var identity: String = ""
     public var identity1: String = ""
     
+    public var data:Data?
     public init(type:RZAttachmentInfo.AttachmentType, image: UIImage?, asset: PHAsset?, filePath: String?, maxWidth: CGFloat, audioHeight: CGFloat, isReEdit: Bool = false) {
         self.maxWidth = maxWidth
         self.audioViewHeight = audioHeight

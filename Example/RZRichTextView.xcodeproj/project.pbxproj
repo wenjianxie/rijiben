@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1721E5232C81C62600CDFF6C /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1721E5222C81C62600CDFF6C /* VideoCell.swift */; };
 		1721E5252C81D8CE00CDFF6C /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1721E5242C81D8CE00CDFF6C /* VideoPlayerViewController.swift */; };
+		17FB15392C8EEF010048B98C /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FB15382C8EEF010048B98C /* RealmManager.swift */; };
+		17FB153B2C9033D20048B98C /* JournalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FB153A2C9033D20048B98C /* JournalCell.swift */; };
 		5BCE247EA8F0D795F999E017 /* Pods_RZRichTextView_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C0FE6C166E24BCECD07B8C6 /* Pods_RZRichTextView_Tests.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
@@ -40,6 +42,8 @@
 /* Begin PBXFileReference section */
 		1721E5222C81C62600CDFF6C /* VideoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
 		1721E5242C81D8CE00CDFF6C /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
+		17FB15382C8EEF010048B98C /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
+		17FB153A2C9033D20048B98C /* JournalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalCell.swift; sourceTree = "<group>"; };
 		3D630A2A4352A67F32D7C55C /* Pods-RZRichTextView_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RZRichTextView_Tests.debug.xcconfig"; path = "Target Support Files/Pods-RZRichTextView_Tests/Pods-RZRichTextView_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		41BF27BAD5B83D7B0517DA18 /* Pods-RZRichTextView_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RZRichTextView_Example.release.xcconfig"; path = "Target Support Files/Pods-RZRichTextView_Example/Pods-RZRichTextView_Example.release.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* RZRichTextView_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RZRichTextView_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -113,6 +117,7 @@
 				B2B1FD2B2A6E503200A6A3A2 /* Demo */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
+				17FB153A2C9033D20048B98C /* JournalCell.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -178,6 +183,7 @@
 				B2DBFBC02AD4ED38001AA5C9 /* TableViewViewController.swift */,
 				1721E5222C81C62600CDFF6C /* VideoCell.swift */,
 				1721E5242C81D8CE00CDFF6C /* VideoPlayerViewController.swift */,
+				17FB15382C8EEF010048B98C /* RealmManager.swift */,
 			);
 			name = Demo;
 			sourceTree = "<group>";
@@ -352,6 +358,8 @@
 				"${BUILT_PRODUCTS_DIR}/QuicklySwift/QuicklySwift.framework",
 				"${BUILT_PRODUCTS_DIR}/RZColorfulSwift/RZColorfulSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/RZRichTextView/RZRichTextView.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/TZImagePickerController/TZImagePickerController.framework",
 			);
@@ -362,6 +370,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QuicklySwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RZColorfulSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RZRichTextView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TZImagePickerController.framework",
 			);
@@ -377,10 +387,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17FB15392C8EEF010048B98C /* RealmManager.swift in Sources */,
 				B289C21E2A7B7D2600D6CEC5 /* LabelLoadHtmlViewController.swift in Sources */,
 				B22BB38F2AE236C40059A609 /* NormalTestViewController.swift in Sources */,
 				B2DBFBC12AD4ED38001AA5C9 /* TableViewViewController.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				17FB153B2C9033D20048B98C /* JournalCell.swift in Sources */,
 				B289C2262A81CB7D00D6CEC5 /* TestViewController.swift in Sources */,
 				B289C2182A78B0FB00D6CEC5 /* HowToUseDemo.swift in Sources */,
 				B2B1FD3B2A70C2D700A6A3A2 /* HTML2AttrViewController.swift in Sources */,
@@ -536,13 +548,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 2ZSH2796G5;
 				INFOPLIST_FILE = RZRichTextView/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dongneng.Mydemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -553,13 +565,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 2ZSH2796G5;
 				INFOPLIST_FILE = RZRichTextView/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dongneng.Mydemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
