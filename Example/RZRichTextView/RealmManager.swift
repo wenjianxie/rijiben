@@ -52,9 +52,10 @@ class Article: Object {
     @objc dynamic var id: String = UUID().uuidString    // 每篇文章唯一标识
     @objc dynamic var title: String = ""                // 文章标题
     @objc dynamic var data: Data?       // 首图URL
+    @objc dynamic var src:String = ""
     @objc dynamic var bodyContent: String = ""          // 正文HTML内容
     @objc dynamic var date: Date = Date()               // 创建时间
-    
+    @objc dynamic var html:String = ""
     override static func primaryKey() -> String? {
         return "id"  // 设置主键
     }

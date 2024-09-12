@@ -36,8 +36,8 @@ class JournalCell: UITableViewCell {
             make.right.equalToSuperview().offset(-12)
 //            make.centerY.equalToSuperview()
             make.top.equalTo(6)
-            make.bottom.equalTo(6)
-            make.width.equalTo(60)
+            make.bottom.equalToSuperview().offset(-6)
+            make.width.equalTo(160)
         }
     }
     

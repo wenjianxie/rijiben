@@ -10,18 +10,15 @@ import UIKit
 import RZRichTextView
 import QuicklySwift
 import SwiftUI
-
+import Kingfisher
 class ViewController: UIViewController {
     
     var list:[Article] = []
+    let tableView = UITableView.init(frame: .zero, style: .plain)
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-      let result  = RealmManager.shared.getAllArticles()
-        
-        for(index,obj) in result.enumerated() {
-            list.append(obj)
-        }
+   
         
         QuicklyAuthorization.result(with: .photoLibrary) { result in
             if !result.granted {
@@ -40,34 +37,28 @@ class ViewController: UIViewController {
 //        ]
         
         
-        let tableView = UITableView.init(frame: .zero, style: .plain)
+       
         
         tableView.register(JournalCell.self, forCellReuseIdentifier: "cell")
         tableView.qnumberofRows { section in
             return self.list.count
         }
         .qheightForRow { indexPath in
-            return 60
+            return 120
         }
         .qcell { tableView, indexPath in
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as!JournalCell
             
             
             let item = self.list[indexPath.row]
-            
-//            let item = items[qsafe: indexPath.row]
             cell.textLabel?.text = item.title
-            
-            
-            if let data = item.data {
-                if let image = UIImage(data: data) {
-                    cell.coverImageView.image = image  // 设置 UIImageView 的图片
-                }
+
+            UIImage.asyncImageBy(item.src) {  image in
+                cell.coverImageView.image = image
             }
-          
-//            cell.detailTextLabel?.text = "\(String(describing: item?.0 ?? UIViewController.self))"
             return cell
         }
+        
         .qdidSelectRow { tableView, indexPath in
             tableView.deselectRow(at: indexPath, animated: false)
 //            if let item = items[qsafe: indexPath.row] {
@@ -98,11 +89,29 @@ class ViewController: UIViewController {
         view.addSubview(addBtn)
     }
     
-    
+   
    @objc func clickAddBtn() {
         let vc = NormalViewController()
-        
+       
+       if list.count > 0 {
+           let html = list[0].html
+           vc.textView.html2Attributedstring(html: html)
+       }
+    
         self.navigationController?.pushViewController(vc, animated: false)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        list.removeAll()
+        let result  = RealmManager.shared.getAllArticles()
+          
+          for(index,obj) in result.enumerated() {
+              list.append(obj)
+          }
+        
+        tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {

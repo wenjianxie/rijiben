@@ -4,6 +4,7 @@ import AVFoundation
 
 class VideoPlayerViewController: UIViewController {
 
+    var urlVideo = ""
     // MARK: - Properties
     var asset: PHAsset?
     private var player: AVPlayer?
@@ -26,6 +27,7 @@ class VideoPlayerViewController: UIViewController {
         
         // Player View
         playerView.translatesAutoresizingMaskIntoConstraints = false
+        playerView.frame = view.bounds
         view.addSubview(playerView)
         NSLayoutConstraint.activate([
             playerView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -48,24 +50,32 @@ class VideoPlayerViewController: UIViewController {
     
     // MARK: - Setup Player
     private func setupPlayer() {
-        guard let asset = asset else { return }
+//        guard let asset = asset else { return }
+//        
+//        let options = PHVideoRequestOptions()
+//        options.version = .current
+//        options.isNetworkAccessAllowed = true
+//        
+//        PHImageManager.default().requestAVAsset(forVideo: asset, options: options) { [weak self] (avAsset, _, _) in
+//            guard let avAsset = avAsset as? AVURLAsset else { return }
+//            
+//            DispatchQueue.main.async {
+//                self?.player = AVPlayer(url: avAsset.url)
+//                self?.playerLayer = AVPlayerLayer(player: self?.player)
+//                self?.playerLayer?.frame = self?.playerView.bounds ?? .zero
+//                self?.playerLayer?.videoGravity = .resizeAspect
+//                self?.playerView.layer.addSublayer(self?.playerLayer ?? CALayer())
+//                self?.player?.play()
+//            }
+//        }
         
-        let options = PHVideoRequestOptions()
-        options.version = .current
-        options.isNetworkAccessAllowed = true
-        
-        PHImageManager.default().requestAVAsset(forVideo: asset, options: options) { [weak self] (avAsset, _, _) in
-            guard let avAsset = avAsset as? AVURLAsset else { return }
-            
-            DispatchQueue.main.async {
-                self?.player = AVPlayer(url: avAsset.url)
-                self?.playerLayer = AVPlayerLayer(player: self?.player)
-                self?.playerLayer?.frame = self?.playerView.bounds ?? .zero
-                self?.playerLayer?.videoGravity = .resizeAspect
-                self?.playerView.layer.addSublayer(self?.playerLayer ?? CALayer())
-                self?.player?.play()
-            }
-        }
+      
+        player = AVPlayer(url:  URL.init(string: urlVideo)!)
+        playerLayer = AVPlayerLayer(player:player)
+        playerLayer?.frame = playerView.bounds
+        playerLayer?.videoGravity = .resizeAspect
+        playerView.layer.addSublayer(playerLayer!)
+        player?.play()
     }
     
     // MARK: - Actions

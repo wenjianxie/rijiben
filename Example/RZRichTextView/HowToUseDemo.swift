@@ -99,16 +99,33 @@ public extension RZRichTextViewModel {
                     }else if info.type == .video {
                         
                         let videoPlayerVC = VideoPlayerViewController()
-                        videoPlayerVC.asset = info.asset // 假设 selectedPHAsset 是你选择的视频 PHAsset
+                        videoPlayerVC.urlVideo = info.src ?? "" // 假设 selectedPHAsset 是你选择的视频 PHAsset
                     
                            // 显示预览控制器
                         qAppFrame.present(videoPlayerVC, animated: true, completion: nil)
                     }
 
                 case .upload(let info): // 上传 以及点击重新上传时，将会执行
-                    RZRichTextViewModel.handleUpload(info: info)
                     
-                  
+                    if info.type == .image {
+//                        info.src = "http://e.hiphotos.baidu.com/image/pic/item/a1ec08fa513d2697e542494057fbb2fb4316d81e.jpg"
+                        
+                        if let asset = info.asset {
+                            savePHAssetToFileURL(asset: asset) { url in
+                                info.src = url
+                            }
+                        }
+                    }
+                    
+                    if info.type == .video {
+                        info.src = "https://media.w3.org/2010/05/sintel/trailer.mp4"
+                        info.poster = "http://e.hiphotos.baidu.com/image/pic/item/4bed2e738bd4b31c1badd5a685d6277f9e2ff81e.jpg"
+                    }
+                    info.uploadStatus.accept(.complete(success: true, info: "上传完成"))
+                    
+                    
+              
+                   
         
     
                     
@@ -182,88 +199,69 @@ public extension RZRichTextViewModel {
         return viewModel
     }
     
-   class func handleUpload(info: RZAttachmentInfo) {
-        switch info.type {
-        case .image:
-            if let asset = info.asset {
-                saveImageFromAsset(asset: asset) { url in
-                    info.data = url
-                    // 进一步操作，比如上传
-                    info.uploadStatus.accept(.complete(success: true, info: "上传完成"))
-                }
-            }
-            
-        case .video:
-            if let asset = info.asset {
-                saveVideoFromAsset(asset: asset) { url in
-                    info.src = url?.absoluteString
-                    // 进一步操作，比如上传
-                    info.uploadStatus.accept(.complete(success: true, info: "上传完成"))
-                }
-            }
+  
 
-        case .audio:
-//            if let filePath = info.filePath {
-//                saveAudioFromAsset(filePath: filePath) { url in
-//                    info.src = url?.absoluteString
-//                    // 进一步操作，比如上传
-//                }
-//            }
-            break
-        default:
-            break
-        }
-    }
-    
-  class  func saveAudioFromAsset(filePath: String, completion: @escaping (URL?) -> Void) {
-        let localURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(UUID().uuidString + ".m4a")
+
+    // 将 PHAsset 转换为本地文件 URL，并返回 URL 的字符串表示
+  class  func savePHAssetToFileURL(asset: PHAsset, completion: @escaping (String?) -> Void) {
+        let options = PHImageRequestOptions()
+        options.isNetworkAccessAllowed = true
+        options.isSynchronous = true
         
-        do {
-            try FileManager.default.copyItem(atPath: filePath, toPath: localURL.path)
-            completion(localURL)
-        } catch {
-            print("音频保存失败: \(error.localizedDescription)")
+        let manager = PHImageManager.default()
+        
+        if asset.mediaType == .video {
+            let videoOptions = PHVideoRequestOptions()
+            videoOptions.isNetworkAccessAllowed = true
+            videoOptions.version = .current
+            
+            manager.requestAVAsset(forVideo: asset, options: videoOptions) { avAsset, _, _ in
+                guard let urlAsset = avAsset as? AVURLAsset else {
+                    completion(nil)
+                    return
+                }
+                
+                // Copy video file to documents directory
+                let fileURL = urlAsset.url
+                let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+                let tempURL = documentsURL.appendingPathComponent(fileURL.lastPathComponent)
+                
+                do {
+                    if FileManager.default.fileExists(atPath: tempURL.path) {
+                        try FileManager.default.removeItem(at: tempURL)
+                    }
+                    try FileManager.default.copyItem(at: fileURL, to: tempURL)
+                    completion(tempURL.absoluteString)
+                } catch {
+                    print("Error copying video file: \(error.localizedDescription)")
+                    completion(nil)
+                }
+            }
+        } else if asset.mediaType == .image {
+            manager.requestImageData(for: asset, options: options) { data, _, _, _ in
+                guard let data = data else {
+                    completion(nil)
+                    return
+                }
+                
+                // Create a file URL for the image in documents directory
+                let fileName = UUID().uuidString + ".jpg" // Adjust extension based on image format
+                let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+                let tempURL = documentsURL.appendingPathComponent(fileName)
+                
+                do {
+                    try data.write(to: tempURL)
+                    completion(tempURL.absoluteString)
+                } catch {
+                    print("Error saving image file: \(error.localizedDescription)")
+                    completion(nil)
+                }
+            }
+        } else {
             completion(nil)
         }
     }
-    
-    class func saveVideoFromAsset(asset: PHAsset, completion: @escaping (URL?) -> Void) {
-        let options = PHVideoRequestOptions()
-        options.deliveryMode = .automatic
-        
-        PHImageManager.default().requestAVAsset(forVideo: asset, options: options) { avAsset, _, _ in
-            guard let urlAsset = avAsset as? AVURLAsset else {
-                completion(nil)
-                return
-            }
-            
-            do {
-                // 保存视频到本地
-                let fileName = UUID().uuidString + ".mp4"
-                let localURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(fileName)
-                try FileManager.default.copyItem(at: urlAsset.url, to: localURL)
-                completion(localURL)  // 返回文件URL
-            } catch {
-                print("视频保存失败: \(error.localizedDescription)")
-                completion(nil)
-            }
-        }
-    }
-    
-    
-    class func saveImageFromAsset(asset: PHAsset, completion: @escaping (Data?) -> Void) {
-        let options = PHImageRequestOptions()
-        options.isSynchronous = false
-        options.deliveryMode = .highQualityFormat
-        
-        PHImageManager.default().requestImageDataAndOrientation(for: asset, options: options) { imageData, _, _, _ in
-            guard let data = imageData else {
-                completion(nil)
-                return
-            }
-            completion(data)  // 返回文件URL
-        }
-    }
+
 
 
 

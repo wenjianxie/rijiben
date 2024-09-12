@@ -411,7 +411,16 @@ public extension String {
                     if let c = RZRichTextViewConfigure.shared.sync_imageBy {
                         att.image = c(att.src)
                     } else {
-                        att.image = UIImage.syncImageBy(att.src)
+//                        let image = UIImage(contentsOfFile: att.src ?? "")
+//                        att.image = image
+//                        
+//                        print("image = \(image)")
+//                        print("url = \(att.src)")
+                        
+                        UIImage.asyncImageBy(att.src) {  image in
+                            att.image = image
+                            
+                        }
                     }
                 case .video:
                     let src = ((att.poster.qisEmpty ? att.src : att.poster) ?? "")

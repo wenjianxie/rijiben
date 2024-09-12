@@ -27,6 +27,8 @@ class NormalViewController: UIViewController {
             }),
         ])
         
+        
+        
         NotificationCenter.default.qaddKeyboardObserver(target: self, object: nil) { [weak self] keyboardInfo in
             let y = keyboardInfo.frameEnd.height
             let ishidden = keyboardInfo.isHidden
@@ -41,7 +43,7 @@ class NormalViewController: UIViewController {
             .qtap { [weak self] view in
                 guard let self = self else { return }
                 let attachments = self.textView.attachments
-                if let _ = attachments.firstIndex(where: { info in
+                if let fristAtt = attachments.firstIndex(where: { info in
                     if case .complete(let success, _) = info.uploadStatus.value {
                         return !success
                     }
@@ -51,32 +53,22 @@ class NormalViewController: UIViewController {
                     print("有未完成上传的")
                     return
                 }
+                
+                
+                let arrt = self.textView.attributedText
+                
                 let html = self.textView.code2html()
                 
+                let ac = Article()
+                ac.html = html
+                ac.title = self.textView.text
                 
-                let article = Article()
-                article.title = textView.text
-                
-                // 取第一张首图
-                for(index,obj) in attachments.enumerated() {
-                    
-                    if obj.type == .image {
-                        
-                        
-                        if let asset = obj.asset {
-                            RZRichTextViewModel.saveImageFromAsset(asset: asset) { url in
-                                
-                                article.data = url
-                                
-                                RealmManager.shared.saveObjct(obj: article)
-                                
-                                print("保存成功")
-                            }
-                        }
-                    }
+                if attachments.count > 0 {
+                    ac.src = attachments[0].src ?? ""
                 }
-                
-                print("\(html)")
+             
+                RealmManager.shared.saveObjct(obj: ac)
+                print("html == \(html)")
             }
         /// 上传完成时，可以点击
         textView.viewModel.uploadAttachmentsComplete.subscribe({ [weak btn] value in
