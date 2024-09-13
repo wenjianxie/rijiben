@@ -11,6 +11,9 @@ import QuicklySwift
 import RZRichTextView
 
 class NormalViewController: UIViewController {
+    
+    
+    var article:Article?
     let textView = RZRichTextView.init(frame: .init(x: 15, y: 0, width: qscreenwidth - 30, height: 300), viewModel: .shared())
         .qbackgroundColor(.qhex(0xf5f5f5))
         .qplaceholder("请输入正文")
@@ -55,20 +58,36 @@ class NormalViewController: UIViewController {
                 }
                 
                 
-                let arrt = self.textView.attributedText
-                
+             
                 let html = self.textView.code2html()
                 
-                let ac = Article()
-                ac.html = html
-                ac.title = self.textView.text
-                
-                if attachments.count > 0 {
-                    ac.src = attachments[0].src ?? ""
+                if article == nil {
+                    let ac = Article()
+                    ac.html = html
+                    ac.title = self.textView.text
+                    ac.date = Date() // 时间
+                    if attachments.count > 0 {
+                        ac.src = attachments[0].src ?? ""
+                    }
+                    RealmManager.shared.saveObjct(obj: ac)
+                }else {
+                    if var article = article {
+                        
+                        try! RealmManager.shared.realm.write {
+                            article.html = html
+                            article.title = self.textView.text
+                            article.date = Date() // 时间
+                            if attachments.count > 0 {
+                                article.src = attachments[0].src ?? ""
+                            }
+                            
+                            RealmManager.shared.saveObjct(obj: article)
+                            print("html == \(html)")
+                        }
+                    }
+                    
                 }
-             
-                RealmManager.shared.saveObjct(obj: ac)
-                print("html == \(html)")
+               
             }
         /// 上传完成时，可以点击
         textView.viewModel.uploadAttachmentsComplete.subscribe({ [weak btn] value in

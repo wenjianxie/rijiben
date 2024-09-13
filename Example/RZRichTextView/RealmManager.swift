@@ -12,18 +12,40 @@ import RealmSwift
 import UIKit
 import Photos
 
-
 class RealmManager {
     
     static let shared = RealmManager()
-    private let realm = try! Realm()
+    public let realm = try! Realm()
 
     // 保存或更新文章
+    func saveObjct(obj: Article) {
+        do {
+           if realm.isInWriteTransaction {
+               // 如果已经在写事务中，直接进行更新
+               updateObject(obj)
+           } else {
+               // 否则开启一个新的写事务
+               try realm.write {
+                   updateObject(obj)
+               }
+           }
+       } catch {
+           print("Error saving or updating object: \(error.localizedDescription)")
+       }
+    }
     
-    // 保存或更新文章
-    func saveObjct(obj:Object) {
-   
-        try! realm.write {
+    // 更新对象的具体方法
+    private func updateObject(_ obj: Article) {
+        if let existingArticle = getArticle(by: obj.id) {
+            // 对象已存在，执行更新
+            existingArticle.title = obj.title
+            existingArticle.data = obj.data
+            existingArticle.src = obj.src
+            existingArticle.bodyContent = obj.bodyContent
+            existingArticle.date = obj.date
+            existingArticle.html = obj.html
+        } else {
+            // 对象不存在，执行保存
             realm.add(obj, update: .modified)
         }
     }
@@ -55,8 +77,8 @@ class Article: Object {
     @objc dynamic var src:String = ""
     @objc dynamic var bodyContent: String = ""          // 正文HTML内容
     @objc dynamic var date: Date = Date()               // 创建时间
-    @objc dynamic var html:String = ""
+    @objc dynamic var html:String = ""                  // HTML内容
     override static func primaryKey() -> String? {
-        return "id"  // 设置主键
+        return "id"  // 使用 html 作为主键
     }
 }

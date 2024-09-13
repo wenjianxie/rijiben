@@ -108,6 +108,9 @@ public extension RZRichTextViewModel {
                     
                            // 显示预览控制器
                         qAppFrame.present(videoPlayerVC, animated: true, completion: nil)
+                    }else if info.type == .audio {
+                        
+                        print("点击了音频")
                     }
 
                 case .upload(let info): // 上传 以及点击重新上传时，将会执行
@@ -120,11 +123,13 @@ public extension RZRichTextViewModel {
                                 info.src = url
                             }
                         }
-                    }
-                    
-                    if info.type == .video {
+                    }else if info.type == .video {
                         info.src = "https://media.w3.org/2010/05/sintel/trailer.mp4"
                         info.poster = "http://e.hiphotos.baidu.com/image/pic/item/4bed2e738bd4b31c1badd5a685d6277f9e2ff81e.jpg"
+                    }else if info.type == .audio {
+                        
+                        info.src = "音频url"
+                        print("上传音频")
                     }
                     info.uploadStatus.accept(.complete(success: true, info: "上传完成"))
                     

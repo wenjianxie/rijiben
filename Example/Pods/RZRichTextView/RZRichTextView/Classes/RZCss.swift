@@ -215,7 +215,7 @@ public extension NSTextAttachment {
         guard let info = self.rzattachmentInfo else { return ""}
         switch info.type {
         case .audio:
-            return "<audio src=\"\(info.src ?? "")\" controls=\"controls\" style=\"max-width:100%;\">您的浏览器不支持此音频格式</audio>"
+            return "<audio src=\"\(info.src ?? "")\" controls=\"controls\" style=\"max-width:100%;\"></audio>"
         case .image:
             return "<img src=\"\(info.src ?? "")\" style=\"max-width:100%;\">"
         case .video:

@@ -44,14 +44,15 @@ class ViewController: UIViewController {
             return self.list.count
         }
         .qheightForRow { indexPath in
-            return 120
+            return 80
         }
         .qcell { tableView, indexPath in
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as!JournalCell
             
             
             let item = self.list[indexPath.row]
-            cell.textLabel?.text = item.title
+          
+            cell.model = self.list[indexPath.row]
 
             
             let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
@@ -62,9 +63,7 @@ class ViewController: UIViewController {
             // 拼接路径
             let fileURL = documentsDirectory.appendingPathComponent(fileName)
             
-            UIImage.asyncImageBy(fileURL.absoluteString) {  image in
-                cell.coverImageView.image = image
-            }
+            cell.coverImageView.kf.setImage(with: fileURL)
             return cell
         }
         
@@ -80,6 +79,7 @@ class ViewController: UIViewController {
             if self.list.count > 0 {
                 let html = self.list[indexPath.row].html
                 vc.textView.html2Attributedstring(html: html)
+                vc.article = self.list[indexPath.row]
                 self.navigationController?.pushViewController(vc, animated: true)
             }
             
