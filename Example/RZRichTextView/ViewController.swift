@@ -53,7 +53,16 @@ class ViewController: UIViewController {
             let item = self.list[indexPath.row]
             cell.textLabel?.text = item.title
 
-            UIImage.asyncImageBy(item.src) {  image in
+            
+            let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+            
+            
+            let fileName =  item.src
+
+            // 拼接路径
+            let fileURL = documentsDirectory.appendingPathComponent(fileName)
+            
+            UIImage.asyncImageBy(fileURL.absoluteString) {  image in
                 cell.coverImageView.image = image
             }
             return cell
@@ -66,6 +75,15 @@ class ViewController: UIViewController {
 //                vc.title = item.1
 //                qAppFrame.pushViewController(vc)
 //            }
+            
+            let vc = NormalViewController()
+            if self.list.count > 0 {
+                let html = self.list[indexPath.row].html
+                vc.textView.html2Attributedstring(html: html)
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+            
+         
         }
         self.view.qbody([
             tableView.qmakeConstraints({ make in
@@ -92,12 +110,7 @@ class ViewController: UIViewController {
    
    @objc func clickAddBtn() {
         let vc = NormalViewController()
-       
-       if list.count > 0 {
-           let html = list[0].html
-           vc.textView.html2Attributedstring(html: html)
-       }
-    
+     
         self.navigationController?.pushViewController(vc, animated: false)
     }
     

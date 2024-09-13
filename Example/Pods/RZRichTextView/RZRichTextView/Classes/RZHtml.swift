@@ -416,8 +416,14 @@ public extension String {
 //                        
 //                        print("image = \(image)")
 //                        print("url = \(att.src)")
+                        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
                         
-                        UIImage.asyncImageBy(att.src) {  image in
+                        
+                        let fileName = att.src
+
+                        // 拼接路径
+                        let fileURL = documentsDirectory.appendingPathComponent(fileName ?? "")
+                        UIImage.asyncImageBy(fileURL.absoluteString) {  image in
                             att.image = image
                             
                         }

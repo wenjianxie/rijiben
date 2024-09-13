@@ -93,8 +93,13 @@ public extension RZRichTextViewModel {
                     if info.type == .image {
                         browser.reloadCellAtIndex = { context in
                             let cell = context.cell as? JXPhotoBrowserImageCell
-                            cell?.imageView.image = info.image
+                            
+                            let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+                            let tempURL = documentsURL.appendingPathComponent(info.src ?? "")
+                            cell?.imageView.kf.setImage(with: tempURL)
                         }
+                        
+                        
                         browser.show()
                     }else if info.type == .video {
                         
@@ -251,8 +256,9 @@ public extension RZRichTextViewModel {
                 
                 do {
                     try data.write(to: tempURL)
-                    completion(tempURL.absoluteString)
+                    completion(fileName)
                 } catch {
+                    
                     print("Error saving image file: \(error.localizedDescription)")
                     completion(nil)
                 }

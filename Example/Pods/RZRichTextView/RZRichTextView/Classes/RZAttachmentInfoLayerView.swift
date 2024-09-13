@@ -46,6 +46,11 @@ open class RZAttachmentInfoLayerView: UIView, RZAttachmentInfoLayerProtocol {
             self.playBtn.isHidden = info.type != .video
             switch info.type {
             case .image:
+                let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+                let tempURL = documentsURL.appendingPathComponent(info.src ?? "")
+                
+                
+                let  url = tempURL.absoluteString
                 if let asset = info.asset {
                     let option = PHImageRequestOptions.init()
                     option.isNetworkAccessAllowed = true
@@ -58,7 +63,7 @@ open class RZAttachmentInfoLayerView: UIView, RZAttachmentInfoLayerProtocol {
                             }
                         }
                     }
-                } else if let url = info.src {
+                } else if url.count > 0 {
                     if let c = RZRichTextViewConfigure.shared.async_imageBy {
                         let complete: ((String?, UIImage?) -> Void)? = { [weak self] source, image in
                             self?.imageView.image = image
