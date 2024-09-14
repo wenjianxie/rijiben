@@ -41,7 +41,7 @@ class NormalViewController: UIViewController {
         }
         
         let btn = UIButton.init(type: .custom)
-            .qtitle("转html")
+            .qtitle("发布")
             .qtitleColor(.red)
             .qtap { [weak self] view in
                 guard let self = self else { return }
@@ -68,6 +68,8 @@ class NormalViewController: UIViewController {
                         ac.src = attachments[0].src ?? ""
                     }
                     RealmManager.shared.saveObjct(obj: ac)
+                    
+                    qAppFrame.popViewController(animated: true)
                 }else {
                     if let article = article {
                         
@@ -80,6 +82,7 @@ class NormalViewController: UIViewController {
                             }
                             
                             RealmManager.shared.saveObjct(obj: article)
+                            qAppFrame.popViewController(animated: true)
                             print("html == \(html)")
                         }
                     }

@@ -59,15 +59,6 @@ class ViewController: UIViewController {
             
             
     
-            let fileName =  item.src
-
-            // 拼接路径
-            let fileURL = URL.documentsURL.appendingPathComponent(fileName)
- 
-            
-            UIImage.asyncImageBy(fileURL.absoluteString) {  image in
-                cell.coverImageView.image = image
-            }
 
             return cell
         }

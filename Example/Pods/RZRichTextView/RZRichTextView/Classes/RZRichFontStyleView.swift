@@ -34,6 +34,11 @@ open class RZRichFontStyleView: UIView {
     // 颜色
     open var color_stackView: UIStackView?
     
+    
+    open var textAlignmen_stackView: UIStackView?
+    
+    let btnsView = UIView()
+    
     open var viewModel: RZRichTextViewModel
     
     required public init?(coder: NSCoder) {
@@ -132,6 +137,13 @@ open class RZRichFontStyleView: UIView {
             })
         ])
         reloadData()
+    }
+    
+    @objc func clickOlFunc() {
+        print("这里被点击了olBtn")
+        
+        let olBtn_item = RZInputAccessoryItem.init(type: .tableStyle, image:  RZRichImage.imageWith("ol"), highlight:  RZRichImage.imageWith("ol"))
+        self.viewModel.textView?.didClickedAccessoryItem(olBtn_item)
     }
     /// 改变样式
     open func changeStyle(_ btn: UIButton) {

@@ -28,9 +28,7 @@ class JournalCell: UITableViewCell {
     /// 容器
     let leftContainerView = UIView()
     
-    
     var rightContainerView = UIView()
-    
     
     var model:Article? {
         didSet {
@@ -46,8 +44,25 @@ class JournalCell: UITableViewCell {
             leftWeekLab.text = String("\(timeStr.day),\(timeStr.weekday)")
             
             timeLab.text = timeStr.hour
+            
+            let fileName =  model.src
+
+            // 拼接路径
+            let fileURL = URL.documentsURL.appendingPathComponent(fileName)
+ 
+            UIImage.asyncImageBy(fileURL.absoluteString) {  image in
+                self.coverImageView.image = image
+            }
+            
+            if model.src.count == 0 {
+                titleLab.snp.updateConstraints { make in
+                    make.right.equalToSuperview()
+                }
+            }
         }
     }
+    
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupUI()

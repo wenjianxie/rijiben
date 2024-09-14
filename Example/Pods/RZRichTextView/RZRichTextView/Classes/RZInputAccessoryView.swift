@@ -68,6 +68,8 @@ open class RZInputAccessoryView: UIView {
                 let items:[RZInputAccessoryItem]? = self?.viewModel.inputItems.filter({$0.enable})
                 self?.clicked?(items?[qsafe: indexPath.row])
             }
+        
+        collectionView.backgroundColor = .red
         self.reloadData()
     }
     
