@@ -94,8 +94,8 @@ public extension RZRichTextViewModel {
                         browser.reloadCellAtIndex = { context in
                             let cell = context.cell as? JXPhotoBrowserImageCell
                             
-                            let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-                            let tempURL = documentsURL.appendingPathComponent(info.src ?? "")
+                            
+                            let tempURL = URL.documentsURL.appendingPathComponent(info.src ?? "")
                             cell?.imageView.kf.setImage(with: tempURL)
                         }
                         
@@ -233,8 +233,8 @@ public extension RZRichTextViewModel {
                 
                 // Copy video file to documents directory
                 let fileURL = urlAsset.url
-                let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-                let tempURL = documentsURL.appendingPathComponent(fileURL.lastPathComponent)
+              
+                let tempURL = URL.documentsURL.appendingPathComponent(fileURL.lastPathComponent)
                 
                 do {
                     if FileManager.default.fileExists(atPath: tempURL.path) {
@@ -256,8 +256,7 @@ public extension RZRichTextViewModel {
                 
                 // Create a file URL for the image in documents directory
                 let fileName = UUID().uuidString + ".jpg" // Adjust extension based on image format
-                let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-                let tempURL = documentsURL.appendingPathComponent(fileName)
+                let tempURL = URL.documentsURL.appendingPathComponent(fileName)
                 
                 do {
                     try data.write(to: tempURL)

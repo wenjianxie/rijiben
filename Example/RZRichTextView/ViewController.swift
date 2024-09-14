@@ -19,7 +19,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
    
-        
+     
         QuicklyAuthorization.result(with: .photoLibrary) { result in
             if !result.granted {
                 print("---- 请给相册权限")
@@ -38,11 +38,14 @@ class ViewController: UIViewController {
         
         
        
-        
+        tableView.separatorStyle = .none
         tableView.register(JournalCell.self, forCellReuseIdentifier: "cell")
         tableView.qnumberofRows { section in
             return self.list.count
         }
+        
+
+        
         .qheightForRow { indexPath in
             return 80
         }
@@ -53,27 +56,24 @@ class ViewController: UIViewController {
             let item = self.list[indexPath.row]
           
             cell.model = self.list[indexPath.row]
-
-            
-            let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
             
             
+    
             let fileName =  item.src
 
             // 拼接路径
-            let fileURL = documentsDirectory.appendingPathComponent(fileName)
+            let fileURL = URL.documentsURL.appendingPathComponent(fileName)
+ 
             
-            cell.coverImageView.kf.setImage(with: fileURL)
+            UIImage.asyncImageBy(fileURL.absoluteString) {  image in
+                cell.coverImageView.image = image
+            }
+
             return cell
         }
         
         .qdidSelectRow { tableView, indexPath in
             tableView.deselectRow(at: indexPath, animated: false)
-//            if let item = items[qsafe: indexPath.row] {
-//                let vc = item.0.init()
-//                vc.title = item.1
-//                qAppFrame.pushViewController(vc)
-//            }
             
             let vc = NormalViewController()
             if self.list.count > 0 {
@@ -92,7 +92,9 @@ class ViewController: UIViewController {
         ])
         
         
-       
+        view.backgroundColor = UIColor.init(hex: 0xeef2f5)
+        
+        tableView.backgroundColor = UIColor.init(hex: 0xeef2f5)
         
         print("list == \(list)")
         print("list == \(list)")

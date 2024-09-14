@@ -17,11 +17,19 @@ class JournalCell: UITableViewCell {
     let timeLab = UILabel()
     
     
+    var leftWeekLab = UILabel()
+    
     let leftTimeLab = UILabel()
     
-    let rightLineView = UIView()
+    let leftLineView = UIView()
     
-    let rightPointView = UIView()
+    let leftPointView = UIView()
+    
+    /// 容器
+    let leftContainerView = UIView()
+    
+    
+    var rightContainerView = UIView()
     
     
     var model:Article? {
@@ -30,6 +38,14 @@ class JournalCell: UITableViewCell {
                 return
             }
             titleLab.text = model.title
+            print(model.date.getDateDetails())
+            
+            let timeStr = model.date.getDateDetails()
+            leftTimeLab.text = "\(timeStr.year).\(timeStr.month)"
+            
+            leftWeekLab.text = String("\(timeStr.day),\(timeStr.weekday)")
+            
+            timeLab.text = timeStr.hour
         }
     }
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -42,54 +58,101 @@ class JournalCell: UITableViewCell {
     }
     
     func setupUI() {
-        contentView.addSubview(titleLab)
-        contentView.addSubview(coverImageView)
-        contentView.addSubview(timeLab)
         
+        contentView.backgroundColor = UIColor.init(hex: 0xeef2f5)
         
-        contentView.addSubview(leftTimeLab)
-        leftTimeLab.text = "2024.9"
-        
-        leftTimeLab.snp.makeConstraints { make in
-            make.left.equalTo(2)
-            make.top.equalTo(0)
+        leftContainerView.backgroundColor = UIColor.init(hex: 0xeef2f5)
+    
+        leftContainerView.adhere(toSuperView: contentView).layout { make in
+            make.left.equalToSuperview()
+            make.height.equalToSuperview()
+            make.width.equalTo(100)
         }
         
-        coverImageView.snp.makeConstraints { make in
+        rightContainerView.adhere(toSuperView: contentView).layout { make in
+            make.top.equalTo(4)
+            make.left.equalTo(leftContainerView.snp.right)
+            make.right.equalToSuperview().offset(-10)
+            make.bottom.equalToSuperview().offset(-4)
+        }.config { lv in
+            lv.backgroundColor = .white
+            lv.layer.cornerRadius = 4
+            lv.clipsToBounds = true
+        }
+        
+       
+
+        coverImageView.adhere(toSuperView: rightContainerView).layout { make in
             make.right.equalToSuperview().offset(-12)
-//            make.centerY.equalToSuperview()
-            make.top.equalTo(80)
+            make.top.equalTo(6)
             make.bottom.equalToSuperview().offset(-6)
             make.width.equalTo(80)
+            
+        }.config { lv in
+            lv.backgroundColor = .clear
+            lv.layer.cornerRadius = 4
+            lv.clipsToBounds = true
         }
         
-        coverImageView.backgroundColor = .red
-        
-        titleLab.numberOfLines = 0
-        leftTimeLab.font = UIFont.systemFont(ofSize: 12)
-        titleLab.snp.makeConstraints { make in
-            make.left.equalTo(80)
-            make.top.equalTo(2)
-            make.right.equalToSuperview().offset(-90)
-        }
-        
-        timeLab.font = UIFont.systemFont(ofSize: 14)
-        timeLab.snp.makeConstraints { make in
-            make.left.equalTo(80)
+        timeLab.adhere(toSuperView: rightContainerView).layout { make in
+            make.left.equalTo(6)
             make.bottom.equalToSuperview().offset(-4)
+        }.config { lb in
+            lb.numberOfLines = 0
+            lb.font = UIFont.systemFont(ofSize: 12)
+            lb.text = "09:32"
+            lb.textColor = .k72Color
         }
         
-        timeLab.text = "09:32"
+        titleLab.adhere(toSuperView: rightContainerView).layout { make in
+            make.left.equalTo(6)
+            make.top.equalTo(6)
+            make.right.equalTo(coverImageView.snp.left).offset(-4)
+            make.bottom.equalTo(timeLab.snp.top)
+        }.config { lb in
+            lb.numberOfLines = 0
+            lb.font = UIFont.systemFont(ofSize: 12)
+        }
         
-        contentView.addSubview(rightLineView)
-        rightLineView.snp.makeConstraints { make in
-            make.left.equalTo(leftTimeLab.snp.right).offset(10)
+  
+
+        leftLineView.adhere(toSuperView: leftContainerView).layout { make in
+            make.left.equalTo(80)
             make.top.equalTo(0)
             make.bottom.equalToSuperview()
             make.width.equalTo(1)
+        }.config { lv in
+            lv.backgroundColor = .gray
         }
         
-        rightLineView.backgroundColor = .gray
+        
+        leftPointView.adhere(toSuperView: leftContainerView).layout { make in
+            make.centerX.equalTo(leftLineView)
+            make.width.height.equalTo(15)
+            make.top.equalTo(16)
+        }.config { lv in
+            lv.layer.cornerRadius = 8
+            lv.layer.masksToBounds = true
+            lv.backgroundColor = UIColor.init(hex: 0xeef2f5)
+            lv.layer.borderWidth = 0.5
+            lv.layer.borderColor = UIColor.k66Color.cgColor
+        }
+        
+        leftTimeLab.adhere(toSuperView: leftContainerView).layout { make in
+            make.left.equalTo(10)
+            make.top.equalTo(4)
+        }.config { lb in
+            lb.text = "2024.9"
+            lb.font = UIFont.systemFont(ofSize: 12)
+        }
+        
+        leftWeekLab.adhere(toSuperView: leftContainerView).layout { make in
+            make.left.equalTo(10)
+            make.top.equalTo(leftTimeLab.snp.bottom).offset(4)
+        }.config { lb in
+            lb.font = 12.font
+        }
+        
         
     }
     

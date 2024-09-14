@@ -46,8 +46,8 @@ open class RZAttachmentInfoLayerView: UIView, RZAttachmentInfoLayerProtocol {
             self.playBtn.isHidden = info.type != .video
             switch info.type {
             case .image:
-                let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-                let tempURL = documentsURL.appendingPathComponent(info.src ?? "")
+                let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+                let tempURL = documentsDirectory.appendingPathComponent(info.src ?? "")
                 
                 
                 let  url = tempURL.absoluteString

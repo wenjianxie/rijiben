@@ -57,8 +57,6 @@ class NormalViewController: UIViewController {
                     return
                 }
                 
-                
-             
                 let html = self.textView.code2html()
                 
                 if article == nil {
@@ -71,7 +69,7 @@ class NormalViewController: UIViewController {
                     }
                     RealmManager.shared.saveObjct(obj: ac)
                 }else {
-                    if var article = article {
+                    if let article = article {
                         
                         try! RealmManager.shared.realm.write {
                             article.html = html
@@ -85,10 +83,9 @@ class NormalViewController: UIViewController {
                             print("html == \(html)")
                         }
                     }
-                    
                 }
-               
             }
+        
         /// 上传完成时，可以点击
         textView.viewModel.uploadAttachmentsComplete.subscribe({ [weak btn] value in
             btn?.isEnabled = value
