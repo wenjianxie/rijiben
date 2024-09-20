@@ -136,6 +136,11 @@ public extension RZRichTextViewModel {
                             savePHAssetToFileURL(asset: asset) { url in
                                 info.src = url
                             }
+                            
+                            
+                            getFirstFrameAndSaveToSandbox(from: asset) { imgurl in
+                                info.poster = imgurl
+                            }
                         }
                     }
                     info.uploadStatus.accept(.complete(success: true, info: "上传完成"))
@@ -297,6 +302,75 @@ public extension RZRichTextViewModel {
         }
     }
 
+
+    // 将 UIImage 保存到沙盒目录，并返回图片文件路径
+ class  func saveImageToSandbox(image: UIImage) -> String? {
+        // 获取沙盒中的 Documents 目录
+        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+        
+        // 为图片生成一个唯一的文件名
+        let fileName = "firstFrame_\(UUID().uuidString).jpg"
+        
+        // 创建图片的完整路径
+     let fileURL = URL.documentsURL.appendingPathComponent(fileName)
+            
+            // 将 UIImage 转换为 JPEG 格式的 Data
+            if let imageData = image.jpegData(compressionQuality: 0.8) {
+                do {
+                    // 将图片数据写入沙盒路径
+                    try imageData.write(to: fileURL)
+                    print("Image saved to: \(fileURL.path)")
+                    return fileName // 返回图片的沙盒路径
+                } catch {
+                    print("Error saving image to sandbox: \(error.localizedDescription)")
+                }
+            }
+        
+        
+        return nil
+    }
+    
+  class  func getFirstFrameAndSaveToSandbox(from asset: PHAsset, completion: @escaping (String?) -> Void) {
+        // 确保 PHAsset 是视频类型
+        guard asset.mediaType == .video else {
+            completion(nil)
+            return
+        }
+
+        // 获取 PHAsset 的 AVAsset
+        let options = PHVideoRequestOptions()
+        options.version = .current
+
+        PHImageManager.default().requestAVAsset(forVideo: asset, options: options) { (avAsset, audioMix, info) in
+            guard let avAsset = avAsset else {
+                completion(nil)
+                return
+            }
+
+            // 使用 AVAssetImageGenerator 生成视频的首帧
+            let imageGenerator = AVAssetImageGenerator(asset: avAsset)
+            imageGenerator.appliesPreferredTrackTransform = true  // 保证图片方向正确
+            
+            let time = CMTime(seconds: 0, preferredTimescale: 60) // 获取视频开始的帧
+            var actualTime = CMTime.zero
+
+            do {
+                let cgImage = try imageGenerator.copyCGImage(at: time, actualTime: &actualTime)
+                let image = UIImage(cgImage: cgImage)
+                
+                // 保存图片到沙盒目录
+                if let imagePath = self.saveImageToSandbox(image: image) {
+                    completion(imagePath) // 返回图片的沙盒地址
+                } else {
+                    completion(nil) // 保存失败
+                }
+                
+            } catch {
+                print("Error generating image: \(error.localizedDescription)")
+                completion(nil)
+            }
+        }
+    }
 
 
 
