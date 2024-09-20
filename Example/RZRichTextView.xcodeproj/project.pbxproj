@@ -25,6 +25,9 @@
 		17FB15542C95276C0048B98C /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FB15532C95276C0048B98C /* URL+Extension.swift */; };
 		17FB15562C9527850048B98C /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FB15552C9527850048B98C /* Constant.swift */; };
 		17FB15582C956FF00048B98C /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FB15572C956FF00048B98C /* Date+Extension.swift */; };
+		17FB155A2C9ADEA80048B98C /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FB15592C9ADEA80048B98C /* RecordView.swift */; };
+		17FB155C2C9D17940048B98C /* AudioPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FB155B2C9D17940048B98C /* AudioPlayerManager.swift */; };
+		17FB155E2C9D290C0048B98C /* AudioPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FB155D2C9D290C0048B98C /* AudioPlayerViewController.swift */; };
 		5BCE247EA8F0D795F999E017 /* Pods_RZRichTextView_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C0FE6C166E24BCECD07B8C6 /* Pods_RZRichTextView_Tests.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
@@ -72,6 +75,9 @@
 		17FB15532C95276C0048B98C /* URL+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
 		17FB15552C9527850048B98C /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		17FB15572C956FF00048B98C /* Date+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		17FB15592C9ADEA80048B98C /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
+		17FB155B2C9D17940048B98C /* AudioPlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerManager.swift; sourceTree = "<group>"; };
+		17FB155D2C9D290C0048B98C /* AudioPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerViewController.swift; sourceTree = "<group>"; };
 		3D630A2A4352A67F32D7C55C /* Pods-RZRichTextView_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RZRichTextView_Tests.debug.xcconfig"; path = "Target Support Files/Pods-RZRichTextView_Tests/Pods-RZRichTextView_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		41BF27BAD5B83D7B0517DA18 /* Pods-RZRichTextView_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RZRichTextView_Example.release.xcconfig"; path = "Target Support Files/Pods-RZRichTextView_Example/Pods-RZRichTextView_Example.release.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* RZRichTextView_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RZRichTextView_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -234,6 +240,9 @@
 				1721E5222C81C62600CDFF6C /* VideoCell.swift */,
 				1721E5242C81D8CE00CDFF6C /* VideoPlayerViewController.swift */,
 				17FB15382C8EEF010048B98C /* RealmManager.swift */,
+				17FB15592C9ADEA80048B98C /* RecordView.swift */,
+				17FB155B2C9D17940048B98C /* AudioPlayerManager.swift */,
+				17FB155D2C9D290C0048B98C /* AudioPlayerViewController.swift */,
 			);
 			name = Demo;
 			sourceTree = "<group>";
@@ -438,6 +447,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				17FB15392C8EEF010048B98C /* RealmManager.swift in Sources */,
+				17FB155C2C9D17940048B98C /* AudioPlayerManager.swift in Sources */,
 				17FB15482C95256F0048B98C /* String+Chinese.swift in Sources */,
 				B289C21E2A7B7D2600D6CEC5 /* LabelLoadHtmlViewController.swift in Sources */,
 				17FB15492C95256F0048B98C /* Int+Extensions.swift in Sources */,
@@ -445,6 +455,8 @@
 				17FB154C2C95256F0048B98C /* UIColor+Extensions.swift in Sources */,
 				B22BB38F2AE236C40059A609 /* NormalTestViewController.swift in Sources */,
 				17FB15462C95256F0048B98C /* UIView+Extension.swift in Sources */,
+				17FB155A2C9ADEA80048B98C /* RecordView.swift in Sources */,
+				17FB155E2C9D290C0048B98C /* AudioPlayerViewController.swift in Sources */,
 				B2DBFBC12AD4ED38001AA5C9 /* TableViewViewController.swift in Sources */,
 				17FB154E2C95256F0048B98C /* UIDevice.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,

@@ -104,19 +104,26 @@ public extension RZRichTextViewModel {
                     }else if info.type == .video {
                         
                         let videoPlayerVC = VideoPlayerViewController()
-                        videoPlayerVC.urlVideo = info.src ?? "" // 假设 selectedPHAsset 是你选择的视频 PHAsset
+                        
+                        let tempURL = URL.documentsURL.appendingPathComponent(info.src ?? "")
+                        videoPlayerVC.urlVideo = tempURL.absoluteString // 假设 selectedPHAsset 是你选择的视频 PHAsset
                     
                            // 显示预览控制器
                         qAppFrame.present(videoPlayerVC, animated: true, completion: nil)
+                        
                     }else if info.type == .audio {
                         
-                        print("点击了音频")
+                        let audioPlayerVC = AudioPlayerViewController()
+                        let tempURL = URL.documentsURL.appendingPathComponent(info.src ?? "")
+                        
+                        audioPlayerVC.audioUrl = tempURL.absoluteString
+                        qAppFrame.present(audioPlayerVC, animated: true, completion: nil)
+                        print("点击了音频\(info.src)")
                     }
 
                 case .upload(let info): // 上传 以及点击重新上传时，将会执行
                     
                     if info.type == .image {
-//                        info.src = "http://e.hiphotos.baidu.com/image/pic/item/a1ec08fa513d2697e542494057fbb2fb4316d81e.jpg"
                         
                         if let asset = info.asset {
                             savePHAssetToFileURL(asset: asset) { url in
@@ -124,21 +131,15 @@ public extension RZRichTextViewModel {
                             }
                         }
                     }else if info.type == .video {
-                        info.src = "https://media.w3.org/2010/05/sintel/trailer.mp4"
-                        info.poster = "http://e.hiphotos.baidu.com/image/pic/item/4bed2e738bd4b31c1badd5a685d6277f9e2ff81e.jpg"
-                    }else if info.type == .audio {
-                        
-                        info.src = "音频url"
-                        print("上传音频")
+
+                        if let asset = info.asset {
+                            savePHAssetToFileURL(asset: asset) { url in
+                                info.src = url
+                            }
+                        }
                     }
                     info.uploadStatus.accept(.complete(success: true, info: "上传完成"))
-                    
-                    
-              
-                   
-        
-    
-                    
+  
                 }
             }, disposebag: info.dispose)
         }
@@ -154,9 +155,24 @@ public extension RZRichTextViewModel {
                 QActionSheetController.show(options: .init(options: [.title("选择附件"), .action("图片"), .action("视频"), .action("音频"), .cancel("取消")])) { [weak viewModel] index in
                     if index < 0 { return }
                     if index == 2, let viewModel = viewModel {
-                        let info = RZAttachmentInfo.init(type: .audio, image: nil, asset: nil, filePath: "file:///Users/rztime/Downloads/123.m4a", maxWidth: viewModel.attachmentMaxWidth, audioHeight: viewModel.audioAttachmentHeight)
-                        /// 插入音频
-                        viewModel.textView?.insetAttachment(info)
+ 
+                        let recordView = RecordView()
+                        recordView.frame = CGRect.init(x: 0, y: kScreenH - 300, width: kScreenW, height: 300)
+                        
+    
+                        recordView.backgroundColor = UIColor.init(hex: 0xeef2f5)
+                        ez.topMostVC?.view.addSubview(recordView)
+                        UIApplication.shared.windows[0].endEditing(true)
+//                        ez.topMostVC?.dismiss(animated: true)
+                        recordView.stopRecordingBlock = { url in
+                            print("url == \(url)")
+                            print("url == \(url)")
+                            let info = RZAttachmentInfo.init(type: .audio, image: nil, asset: nil, filePath: url, maxWidth: viewModel.attachmentMaxWidth, audioHeight: viewModel.audioAttachmentHeight)
+                            
+                            info.src = url
+                    //                        /// 插入音频
+                                viewModel.textView?.insetAttachment(info)
+                        }
                         return
                     }
                     let vc = TZImagePickerController.init(maxImagesCount: 1, delegate: nil)
@@ -183,6 +199,7 @@ public extension RZRichTextViewModel {
                         qAppFrame.present(vc, animated: true, completion: nil)
                     }
                 }
+                
                 return true
             case.image:
                 break
@@ -209,7 +226,14 @@ public extension RZRichTextViewModel {
         return viewModel
     }
     
-  
+   class func playSavedAudio(url:String) {
+        let audioFilePath = url
+        if let fileURL = URL(string: audioFilePath) {
+            AudioPlayerManager.shared.playAudioFile(at: fileURL)
+        } else {
+            print("Invalid file URL")
+        }
+    }
 
 
     // 将 PHAsset 转换为本地文件 URL，并返回 URL 的字符串表示
@@ -241,7 +265,7 @@ public extension RZRichTextViewModel {
                         try FileManager.default.removeItem(at: tempURL)
                     }
                     try FileManager.default.copyItem(at: fileURL, to: tempURL)
-                    completion(tempURL.absoluteString)
+                    completion(fileURL.lastPathComponent)
                 } catch {
                     print("Error copying video file: \(error.localizedDescription)")
                     completion(nil)
@@ -256,6 +280,7 @@ public extension RZRichTextViewModel {
                 
                 // Create a file URL for the image in documents directory
                 let fileName = UUID().uuidString + ".jpg" // Adjust extension based on image format
+//                let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
                 let tempURL = URL.documentsURL.appendingPathComponent(fileName)
                 
                 do {
