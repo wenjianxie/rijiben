@@ -372,10 +372,6 @@ public extension RZRichTextViewModel {
         }
     }
 
-
-
-
-    
    @objc func playerDidFinishPlaying(notification: Notification) {
        
        print("这里之心攻略")
@@ -387,6 +383,7 @@ public extension RZRichTextViewModel {
 //           NotificationCenter.default.removeObserver(self, name: .AVPlayerItemDidPlayToEndTime, object: nil)
        }
 }
+
 /// 模拟上传
 class UploadTaskTest {
     ///  模拟上传，testVM主要用于释放timer

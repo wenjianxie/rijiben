@@ -380,27 +380,7 @@ public extension String {
                 tempAttr.addAttribute(.font, value: newfont, range: range)
             }
         }
-        /// 设置块
-//        if let regexblockquoteStar = try? NSRegularExpression.init(pattern: blockquoteStar, options: .caseInsensitive), let regexblockquoteend = try? NSRegularExpression.init(pattern: blockquoteEnd, options: .caseInsensitive)  {
-//            let rangestars = regexblockquoteStar.matches(in: tempAttr.string, range: .init(location: 0, length: tempAttr.string.count)).compactMap({$0.range})
-//            let rangeends = regexblockquoteend.matches(in: tempAttr.string, range: .init(location: 0, length: tempAttr.string.count)).compactMap({$0.range})
-//            var ranges: [NSRange] = []
-//            rangestars.enumerated().forEach { idx, rg in
-//                let star = rg.location
-//                let end = rangeends[qsafe: idx]?.rt.maxLength() ?? 0
-//                ranges.append(.init(location: star, length: max(0, end - star)))
-//            }
-//            ranges.forEach { range in
-//                tempAttr.addAttribute(.rzblockquote, value: 1, range: range)
-//            }
-//            var rgs = rangestars + rangeends
-//            rgs = rgs.sorted { rg1, rg2 in
-//                return rg1.location <= rg2.location
-//            }.reversed()
-//            rgs.forEach { rg in
-//                tempAttr.replaceCharacters(in: rg, with: "")
-//            }
-//        }
+
         /// 设置附件
         let ats : [NSTextAttachment] = tempAttr.rt.attachments().compactMap({$0.0})
         ats.enumerated().forEach { idx, at in
@@ -429,11 +409,17 @@ public extension String {
                         }
                     }
                 case .video:
-                    let src = ((att.poster.qisEmpty ? att.src : att.poster) ?? "")
-                    if let c = RZRichTextViewConfigure.shared.sync_imageBy {
-                        att.image = c(att.src)
-                    } else {
-                        att.image = UIImage.syncImageBy(src)
+
+                    let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+                    
+                    
+                    let fileName = att.poster
+
+                    // 拼接路径
+                    let fileURL = documentsDirectory.appendingPathComponent(fileName ?? "")
+                    UIImage.asyncImageBy(fileURL.absoluteString) {  image in
+                        att.image = image
+                        
                     }
                 case .audio:
                     break

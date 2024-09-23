@@ -83,11 +83,52 @@ open class RZAttachmentInfoLayerView: UIView, RZAttachmentInfoLayerProtocol {
                     }, disposebag: dispose)
                 }
             case .video:
-                info.imagePublish.subscribe({ [weak self] value in
-                    guard let self = self else { return }
-                    self.imageView.image = value
-                    self.updateImageViewSize()
-                }, disposebag: dispose)
+
+      
+                
+                let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+                let tempURL = documentsDirectory.appendingPathComponent(info.src ?? "")
+                
+                
+                let  url = tempURL.absoluteString
+                if let asset = info.asset {
+                    let option = PHImageRequestOptions.init()
+                    option.isNetworkAccessAllowed = true
+                    option.resizeMode = .fast
+                    option.deliveryMode = .highQualityFormat
+                    PHImageManager.default().requestImageData(for: asset, options: option) { [weak self] data, _, _, _ in
+                        if let imageData = data {
+                            self?.imageView.kf.setImage(with: .provider(RawImageDataProvider(data: imageData, cacheKey: asset.localIdentifier))) { [weak self] _ in
+                                self?.updateImageViewSize()
+                            }
+                        }
+                    }
+                } 
+                else if url.count > 0 {
+                    if let c = RZRichTextViewConfigure.shared.async_imageBy {
+                        let complete: ((String?, UIImage?) -> Void)? = { [weak self] source, image in
+                            self?.imageView.image = image
+                            self?.updateImageViewSize()
+                        }
+                        c(url, complete)
+                    } else {
+
+                        
+                        UIImage.asyncImageBy(url) { [weak self] image in
+                            guard let self = self, let image = image else { return }
+
+                            self.imageView.image = image
+                            self.updateImageViewSize()
+//                            self.imageView.contentMode = .scaleAspectFill
+                        }
+                    }
+                } else {
+                    info.imagePublish.subscribe({ [weak self] value in
+                        guard let self = self else { return }
+                        self.imageView.image = value
+                        self.updateImageViewSize()
+                    }, disposebag: dispose)
+                }
             case .audio:
                 if let path = info.path ?? info.src  {
                     self.nameLabel.text = path.qtoURL?.lastPathComponent
@@ -261,6 +302,10 @@ open class RZAttachmentInfoLayerView: UIView, RZAttachmentInfoLayerProtocol {
         let size = image.size
         self.imageView.snp.makeConstraints { make in
             make.height.equalTo(self.imageView.snp.width).multipliedBy(size.height / size.width)
+            make.left.right.equalToSuperview() // 左右填满父视图
+            let aspectRatio = size.height / size.width
+//            make.height.equalTo(self.imageView.snp.width).multipliedBy(aspectRatio)
         }
+        self.imageView.contentMode = .scaleAspectFit
     }
 }

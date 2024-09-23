@@ -40,24 +40,23 @@ class JournalCell: UITableViewCell {
             
             let timeStr = model.date.getDateDetails()
             leftTimeLab.text = "\(timeStr.year).\(timeStr.month)"
-            
             leftWeekLab.text = String("\(timeStr.day),\(timeStr.weekday)")
-            
             timeLab.text = timeStr.hour
-            
             let fileName =  model.src
-
-            // 拼接路径
-            let fileURL = URL.documentsURL.appendingPathComponent(fileName)
- 
-            UIImage.asyncImageBy(fileURL.absoluteString) {  image in
-                self.coverImageView.image = image
-            }
-            
-            if model.src.count == 0 {
-                titleLab.snp.updateConstraints { make in
-                    make.right.equalToSuperview()
+            if fileName.count > 0 {
+                // 拼接路径
+                let fileURL = URL.documentsURL.appendingPathComponent(fileName)
+                UIImage.asyncImageBy(fileURL.absoluteString) {  image in
+                    self.coverImageView.image = image
                 }
+            }else {
+                self.coverImageView.image = UIImage()
+            }
+         
+            if model.src.count == 0 {
+//                titleLab.snp.updateConstraints { make in
+//                    make.right.equalToSuperview()
+//                }
             }
         }
     }
@@ -95,8 +94,6 @@ class JournalCell: UITableViewCell {
             lv.clipsToBounds = true
         }
         
-       
-
         coverImageView.adhere(toSuperView: rightContainerView).layout { make in
             make.right.equalToSuperview().offset(-12)
             make.top.equalTo(6)
@@ -107,6 +104,7 @@ class JournalCell: UITableViewCell {
             lv.backgroundColor = .clear
             lv.layer.cornerRadius = 4
             lv.clipsToBounds = true
+            lv.contentMode = .scaleAspectFit
         }
         
         timeLab.adhere(toSuperView: rightContainerView).layout { make in
@@ -129,8 +127,6 @@ class JournalCell: UITableViewCell {
             lb.font = UIFont.systemFont(ofSize: 12)
         }
         
-  
-
         leftLineView.adhere(toSuperView: leftContainerView).layout { make in
             make.left.equalTo(80)
             make.top.equalTo(0)

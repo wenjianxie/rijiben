@@ -11,7 +11,7 @@ import RZRichTextView
 import QuicklySwift
 import SwiftUI
 import Kingfisher
-class ViewController: UIViewController {
+class ViewController: BaseViewController {
     
     var list:[Article] = []
     let tableView = UITableView.init(frame: .zero, style: .plain)
@@ -21,7 +21,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-   
+        if #available(iOS 16.0, *) {
+            customBackButton.isHidden = true
+        } else {
+            // Fallback on earlier versions
+        }
      
         QuicklyAuthorization.result(with: .photoLibrary) { result in
             if !result.granted {
@@ -58,11 +62,8 @@ class ViewController: UIViewController {
             
             let item = self.list[indexPath.row]
           
-            cell.model = self.list[indexPath.row]
+            cell.model = item
             
-            
-    
-
             return cell
         }
         
@@ -72,13 +73,13 @@ class ViewController: UIViewController {
             let vc = NormalViewController()
             if self.list.count > 0 {
                 let html = self.list[indexPath.row].html
+                
                 vc.textView.html2Attributedstring(html: html)
                 vc.article = self.list[indexPath.row]
                 self.navigationController?.pushViewController(vc, animated: true)
             }
-            
-         
         }
+        
         self.view.qbody([
             tableView.qmakeConstraints({ make in
                 make.edges.equalToSuperview()
@@ -94,20 +95,20 @@ class ViewController: UIViewController {
         print("list == \(list)")
         
         
-        let addBtn = UIButton()
-        addBtn.setTitle("addBtn", for: .normal)
-        addBtn.addTarget(self, action: #selector(clickAddBtn), for: .touchUpInside)
+    
         
-        addBtn.backgroundColor = .red
-        addBtn.frame = CGRect.init(x: 300, y: 600, width: 60, height: 60)
-        view.addSubview(addBtn)
+        
+        let btn = UIButton()
+        btn.setImage("nav_add".image, for: .normal)
+        btn.addTarget(self, action: #selector(clickAddBtn), for: .touchUpInside)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: btn)
     }
     
    
    @objc func clickAddBtn() {
         let vc = NormalViewController()
      
-        self.navigationController?.pushViewController(vc, animated: false)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {

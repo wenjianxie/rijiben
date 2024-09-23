@@ -10,7 +10,7 @@ import UIKit
 import QuicklySwift
 import RZRichTextView
 
-class NormalViewController: UIViewController {
+class NormalViewController: BaseViewController {
     
     
     var article:Article?
