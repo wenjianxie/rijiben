@@ -29,6 +29,25 @@
 		17FB155C2C9D17940048B98C /* AudioPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FB155B2C9D17940048B98C /* AudioPlayerManager.swift */; };
 		17FB155E2C9D290C0048B98C /* AudioPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FB155D2C9D290C0048B98C /* AudioPlayerViewController.swift */; };
 		17FB15602CA15E470048B98C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FB155F2CA15E470048B98C /* BaseViewController.swift */; };
+		17FB15782CA1779A0048B98C /* RZRichTextView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 17FB15612CA177990048B98C /* RZRichTextView.bundle */; };
+		17FB15792CA1779A0048B98C /* AttributedStringRich.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FB15632CA177990048B98C /* AttributedStringRich.swift */; };
+		17FB157A2CA1779A0048B98C /* LabelRZRich.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FB15642CA177990048B98C /* LabelRZRich.swift */; };
+		17FB157B2CA1779A0048B98C /* RZAttachmentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FB15652CA177990048B98C /* RZAttachmentInfo.swift */; };
+		17FB157C2CA1779A0048B98C /* RZAttachmentInfoLayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FB15662CA177990048B98C /* RZAttachmentInfoLayerView.swift */; };
+		17FB157D2CA1779A0048B98C /* RZCss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FB15672CA177990048B98C /* RZCss.swift */; };
+		17FB157E2CA1779A0048B98C /* RZHtml.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FB15682CA177990048B98C /* RZHtml.swift */; };
+		17FB157F2CA1779A0048B98C /* RZInputAccessoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FB15692CA177990048B98C /* RZInputAccessoryItem.swift */; };
+		17FB15802CA1779A0048B98C /* RZInputAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FB156A2CA177990048B98C /* RZInputAccessoryView.swift */; };
+		17FB15812CA1779A0048B98C /* RZLinkInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FB156B2CA177990048B98C /* RZLinkInputViewController.swift */; };
+		17FB15822CA1779A0048B98C /* RZRichFontStyleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FB156C2CA177990048B98C /* RZRichFontStyleView.swift */; };
+		17FB15832CA1779A0048B98C /* RZRichParagraphStyleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FB156D2CA177990048B98C /* RZRichParagraphStyleView.swift */; };
+		17FB15842CA1779A0048B98C /* RZRichTableStyleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FB156E2CA177990048B98C /* RZRichTableStyleView.swift */; };
+		17FB15852CA1779A0048B98C /* RZRichTextBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FB156F2CA177990048B98C /* RZRichTextBase.swift */; };
+		17FB15862CA1779A0048B98C /* RZRichTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FB15702CA177990048B98C /* RZRichTextView.swift */; };
+		17FB15872CA1779A0048B98C /* RZRichTextViewConfigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FB15712CA177990048B98C /* RZRichTextViewConfigure.swift */; };
+		17FB15882CA1779A0048B98C /* RZRichTextViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FB15722CA177990048B98C /* RZRichTextViewModel.swift */; };
+		17FB15892CA1779A0048B98C /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 17FB15752CA177990048B98C /* LICENSE */; };
+		17FB158A2CA1779A0048B98C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 17FB15762CA177990048B98C /* README.md */; };
 		5BCE247EA8F0D795F999E017 /* Pods_RZRichTextView_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C0FE6C166E24BCECD07B8C6 /* Pods_RZRichTextView_Tests.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
@@ -80,6 +99,25 @@
 		17FB155B2C9D17940048B98C /* AudioPlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerManager.swift; sourceTree = "<group>"; };
 		17FB155D2C9D290C0048B98C /* AudioPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerViewController.swift; sourceTree = "<group>"; };
 		17FB155F2CA15E470048B98C /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		17FB15612CA177990048B98C /* RZRichTextView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = RZRichTextView.bundle; sourceTree = "<group>"; };
+		17FB15632CA177990048B98C /* AttributedStringRich.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributedStringRich.swift; sourceTree = "<group>"; };
+		17FB15642CA177990048B98C /* LabelRZRich.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelRZRich.swift; sourceTree = "<group>"; };
+		17FB15652CA177990048B98C /* RZAttachmentInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RZAttachmentInfo.swift; sourceTree = "<group>"; };
+		17FB15662CA177990048B98C /* RZAttachmentInfoLayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RZAttachmentInfoLayerView.swift; sourceTree = "<group>"; };
+		17FB15672CA177990048B98C /* RZCss.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RZCss.swift; sourceTree = "<group>"; };
+		17FB15682CA177990048B98C /* RZHtml.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RZHtml.swift; sourceTree = "<group>"; };
+		17FB15692CA177990048B98C /* RZInputAccessoryItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RZInputAccessoryItem.swift; sourceTree = "<group>"; };
+		17FB156A2CA177990048B98C /* RZInputAccessoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RZInputAccessoryView.swift; sourceTree = "<group>"; };
+		17FB156B2CA177990048B98C /* RZLinkInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RZLinkInputViewController.swift; sourceTree = "<group>"; };
+		17FB156C2CA177990048B98C /* RZRichFontStyleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RZRichFontStyleView.swift; sourceTree = "<group>"; };
+		17FB156D2CA177990048B98C /* RZRichParagraphStyleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RZRichParagraphStyleView.swift; sourceTree = "<group>"; };
+		17FB156E2CA177990048B98C /* RZRichTableStyleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RZRichTableStyleView.swift; sourceTree = "<group>"; };
+		17FB156F2CA177990048B98C /* RZRichTextBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RZRichTextBase.swift; sourceTree = "<group>"; };
+		17FB15702CA177990048B98C /* RZRichTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RZRichTextView.swift; sourceTree = "<group>"; };
+		17FB15712CA177990048B98C /* RZRichTextViewConfigure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RZRichTextViewConfigure.swift; sourceTree = "<group>"; };
+		17FB15722CA177990048B98C /* RZRichTextViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RZRichTextViewModel.swift; sourceTree = "<group>"; };
+		17FB15752CA177990048B98C /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		17FB15762CA177990048B98C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		3D630A2A4352A67F32D7C55C /* Pods-RZRichTextView_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RZRichTextView_Tests.debug.xcconfig"; path = "Target Support Files/Pods-RZRichTextView_Tests/Pods-RZRichTextView_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		41BF27BAD5B83D7B0517DA18 /* Pods-RZRichTextView_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RZRichTextView_Example.release.xcconfig"; path = "Target Support Files/Pods-RZRichTextView_Example/Pods-RZRichTextView_Example.release.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* RZRichTextView_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RZRichTextView_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,6 +184,57 @@
 			);
 			path = Extension;
 			sourceTree = "<group>";
+		};
+		17FB15622CA177990048B98C /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				17FB15612CA177990048B98C /* RZRichTextView.bundle */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		17FB15732CA177990048B98C /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				17FB15632CA177990048B98C /* AttributedStringRich.swift */,
+				17FB15642CA177990048B98C /* LabelRZRich.swift */,
+				17FB15652CA177990048B98C /* RZAttachmentInfo.swift */,
+				17FB15662CA177990048B98C /* RZAttachmentInfoLayerView.swift */,
+				17FB15672CA177990048B98C /* RZCss.swift */,
+				17FB15682CA177990048B98C /* RZHtml.swift */,
+				17FB15692CA177990048B98C /* RZInputAccessoryItem.swift */,
+				17FB156A2CA177990048B98C /* RZInputAccessoryView.swift */,
+				17FB156B2CA177990048B98C /* RZLinkInputViewController.swift */,
+				17FB156C2CA177990048B98C /* RZRichFontStyleView.swift */,
+				17FB156D2CA177990048B98C /* RZRichParagraphStyleView.swift */,
+				17FB156E2CA177990048B98C /* RZRichTableStyleView.swift */,
+				17FB156F2CA177990048B98C /* RZRichTextBase.swift */,
+				17FB15702CA177990048B98C /* RZRichTextView.swift */,
+				17FB15712CA177990048B98C /* RZRichTextViewConfigure.swift */,
+				17FB15722CA177990048B98C /* RZRichTextViewModel.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		17FB15742CA177990048B98C /* RZRichTextView */ = {
+			isa = PBXGroup;
+			children = (
+				17FB15622CA177990048B98C /* Assets */,
+				17FB15732CA177990048B98C /* Classes */,
+			);
+			path = RZRichTextView;
+			sourceTree = "<group>";
+		};
+		17FB15772CA177990048B98C /* RZRichTextView */ = {
+			isa = PBXGroup;
+			children = (
+				17FB15742CA177990048B98C /* RZRichTextView */,
+				17FB15752CA177990048B98C /* LICENSE */,
+				17FB15762CA177990048B98C /* README.md */,
+			);
+			name = RZRichTextView;
+			path = Pods/RZRichTextView;
+			sourceTree = SOURCE_ROOT;
 		};
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
@@ -230,6 +319,7 @@
 		B2B1FD2B2A6E503200A6A3A2 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				17FB15772CA177990048B98C /* RZRichTextView */,
 				17FB15502C9525770048B98C /* Extension */,
 				B2B1FD2C2A6E505000A6A3A2 /* NormalViewController.swift */,
 				B2B1FD3A2A70C2D700A6A3A2 /* HTML2AttrViewController.swift */,
@@ -348,9 +438,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17FB158A2CA1779A0048B98C /* README.md in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
+				17FB15782CA1779A0048B98C /* RZRichTextView.bundle in Resources */,
+				17FB15892CA1779A0048B98C /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,21 +542,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17FB15802CA1779A0048B98C /* RZInputAccessoryView.swift in Sources */,
+				17FB15822CA1779A0048B98C /* RZRichFontStyleView.swift in Sources */,
 				17FB15392C8EEF010048B98C /* RealmManager.swift in Sources */,
+				17FB157F2CA1779A0048B98C /* RZInputAccessoryItem.swift in Sources */,
 				17FB155C2C9D17940048B98C /* AudioPlayerManager.swift in Sources */,
 				17FB15482C95256F0048B98C /* String+Chinese.swift in Sources */,
+				17FB157D2CA1779A0048B98C /* RZCss.swift in Sources */,
+				17FB15882CA1779A0048B98C /* RZRichTextViewModel.swift in Sources */,
 				B289C21E2A7B7D2600D6CEC5 /* LabelLoadHtmlViewController.swift in Sources */,
 				17FB15492C95256F0048B98C /* Int+Extensions.swift in Sources */,
+				17FB15872CA1779A0048B98C /* RZRichTextViewConfigure.swift in Sources */,
 				17FB15522C9527500048B98C /* CGFloatExtensions.swift in Sources */,
 				17FB154C2C95256F0048B98C /* UIColor+Extensions.swift in Sources */,
 				B22BB38F2AE236C40059A609 /* NormalTestViewController.swift in Sources */,
+				17FB157A2CA1779A0048B98C /* LabelRZRich.swift in Sources */,
 				17FB15462C95256F0048B98C /* UIView+Extension.swift in Sources */,
 				17FB155A2C9ADEA80048B98C /* RecordView.swift in Sources */,
 				17FB155E2C9D290C0048B98C /* AudioPlayerViewController.swift in Sources */,
 				B2DBFBC12AD4ED38001AA5C9 /* TableViewViewController.swift in Sources */,
+				17FB15792CA1779A0048B98C /* AttributedStringRich.swift in Sources */,
 				17FB154E2C95256F0048B98C /* UIDevice.swift in Sources */,
+				17FB157E2CA1779A0048B98C /* RZHtml.swift in Sources */,
 				17FB15602CA15E470048B98C /* BaseViewController.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				17FB157B2CA1779A0048B98C /* RZAttachmentInfo.swift in Sources */,
 				17FB153B2C9033D20048B98C /* JournalCell.swift in Sources */,
 				17FB154D2C95256F0048B98C /* SwiftNormal.swift in Sources */,
 				B289C2262A81CB7D00D6CEC5 /* TestViewController.swift in Sources */,
@@ -473,13 +576,19 @@
 				17FB154F2C95256F0048B98C /* String+Extension.swift in Sources */,
 				1721E5232C81C62600CDFF6C /* VideoCell.swift in Sources */,
 				B2B1FD2D2A6E505000A6A3A2 /* NormalViewController.swift in Sources */,
+				17FB157C2CA1779A0048B98C /* RZAttachmentInfoLayerView.swift in Sources */,
 				17FB15562C9527850048B98C /* Constant.swift in Sources */,
 				1721E5252C81D8CE00CDFF6C /* VideoPlayerViewController.swift in Sources */,
+				17FB15862CA1779A0048B98C /* RZRichTextView.swift in Sources */,
+				17FB15812CA1779A0048B98C /* RZLinkInputViewController.swift in Sources */,
+				17FB15832CA1779A0048B98C /* RZRichParagraphStyleView.swift in Sources */,
 				17FB15542C95276C0048B98C /* URL+Extension.swift in Sources */,
 				B289C21A2A78B48D00D6CEC5 /* CustomRichTextViewController.swift in Sources */,
+				17FB15842CA1779A0048B98C /* RZRichTableStyleView.swift in Sources */,
 				17FB154A2C95256F0048B98C /* EZ.swift in Sources */,
 				17FB15582C956FF00048B98C /* Date+Extension.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				17FB15852CA1779A0048B98C /* RZRichTextBase.swift in Sources */,
 				17FB154B2C95256F0048B98C /* UIColor+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
