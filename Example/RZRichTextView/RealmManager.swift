@@ -68,6 +68,13 @@ class RealmManager {
             }
         }
     }
+    
+    func deleteArticle(_ article: Article) {
+         let realm = try! Realm()
+         try! realm.write {
+             realm.delete(article)
+         }
+     }
 }
 
 class Article: Object {

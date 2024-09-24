@@ -1,6 +1,33 @@
 PODS:
+  - BRPickerView (2.9.1):
+    - BRPickerView/All (= 2.9.1)
+  - BRPickerView/All (2.9.1):
+    - BRPickerView/Default
+    - BRPickerView/Deprecated
+  - BRPickerView/Core (2.9.1)
+  - BRPickerView/DatePicker (2.9.1):
+    - BRPickerView/Core
+  - BRPickerView/Default (2.9.1):
+    - BRPickerView/DatePicker
+    - BRPickerView/TextPicker
+  - BRPickerView/Deprecated (2.9.1):
+    - BRPickerView/Core
+    - BRPickerView/Deprecated/AddressPickerView (= 2.9.1)
+    - BRPickerView/Deprecated/Base (= 2.9.1)
+    - BRPickerView/Deprecated/StringPickerView (= 2.9.1)
+  - BRPickerView/Deprecated/AddressPickerView (2.9.1):
+    - BRPickerView/Core
+    - BRPickerView/Deprecated/Base
+  - BRPickerView/Deprecated/Base (2.9.1):
+    - BRPickerView/Core
+  - BRPickerView/Deprecated/StringPickerView (2.9.1):
+    - BRPickerView/Core
+    - BRPickerView/Deprecated/Base
+  - BRPickerView/TextPicker (2.9.1):
+    - BRPickerView/Core
   - JXPhotoBrowser (3.1.5)
   - Kingfisher (6.3.1)
+  - MJRefresh (3.7.6)
   - QuicklySwift (0.9.0):
     - SnapKit
   - Realm (10.49.2):
@@ -22,16 +49,20 @@ PODS:
   - TZImagePickerController/Location (3.8.7)
 
 DEPENDENCIES:
+  - BRPickerView
   - JXPhotoBrowser
   - Kingfisher
+  - MJRefresh
   - RealmSwift
   - RZRichTextView
   - TZImagePickerController
 
 SPEC REPOS:
   trunk:
+    - BRPickerView
     - JXPhotoBrowser
     - Kingfisher
+    - MJRefresh
     - QuicklySwift
     - Realm
     - RealmSwift
@@ -41,8 +72,10 @@ SPEC REPOS:
     - TZImagePickerController
 
 SPEC CHECKSUMS:
+  BRPickerView: 6dd69ea2c48e0a0abf1d197a705050e13143ee63
   JXPhotoBrowser: a6d745f5711bde79b02ba29165e2456ab5bde476
   Kingfisher: 016c8b653a35add51dd34a3aba36b580041acc74
+  MJRefresh: 2fe7fb43a5167ceda20bb7e63f130c04fd1814a5
   QuicklySwift: 817e8e5f55ea6bd1932b02db75b1af515c3ace81
   Realm: c1a96376972e5f6c26276a0cd6dee15eeefaf53c
   RealmSwift: db6ea9e15607653352baa42321bd9586850b7f04
@@ -51,6 +84,6 @@ SPEC CHECKSUMS:
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   TZImagePickerController: 5f35bb7266552e36ca834bafa955b869fe086124
 
-PODFILE CHECKSUM: e1b2bb05feed8d39743d5b1c75b729aa6cbd12de
+PODFILE CHECKSUM: a0ebecaee673e4fcee305e4ea8aab6b045adca76
 
 COCOAPODS: 1.15.2

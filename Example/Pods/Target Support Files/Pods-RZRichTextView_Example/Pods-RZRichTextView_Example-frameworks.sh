@@ -176,8 +176,10 @@ code_sign_if_enabled() {
 }
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/BRPickerView/BRPickerView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/JXPhotoBrowser/JXPhotoBrowser.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/QuicklySwift/QuicklySwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RZColorfulSwift/RZColorfulSwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RZRichTextView/RZRichTextView.framework"
@@ -187,8 +189,10 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/TZImagePickerController/TZImagePickerController.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/BRPickerView/BRPickerView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/JXPhotoBrowser/JXPhotoBrowser.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/QuicklySwift/QuicklySwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RZColorfulSwift/RZColorfulSwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RZRichTextView/RZRichTextView.framework"

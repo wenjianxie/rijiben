@@ -9,7 +9,8 @@ target 'RZRichTextView_Example' do
   
   pod 'JXPhotoBrowser'
 	pod 'RealmSwift'
-  
+  pod 'BRPickerView'
+  pod 'MJRefresh'
   target 'RZRichTextView_Tests' do
     inherit! :search_paths
 
