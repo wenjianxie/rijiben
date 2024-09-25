@@ -62,20 +62,19 @@ class ViewController: BaseViewController, UITableViewDelegate, UITableViewDataSo
         // 创建筛选按钮
           let filterButton = UIButton(type: .system)
           filterButton.setTitle("筛选日记", for: .normal)
-        filterButton.titleLabel?.font = 16.boldFont
-        filterButton.setTitleColor(.k30Color, for: .normal)
+          filterButton.titleLabel?.font = 16.boldFont
+          filterButton.setTitleColor(.k30Color, for: .normal)
           filterButton.addTarget(self, action: #selector(didTapFilterButton), for: .touchUpInside)
           
           // 设置为导航栏的中间视图
           self.navigationItem.titleView = filterButton
         
-        
-        
+        //牛市来临？
         // Configure empty state image view
-           emptyStateImageView.image = UIImage(named: "empty_diary_image") // 替换为你的图片名称
+           emptyStateImageView.image = UIImage(named: "nodata") // 替换为你的图片名称
            emptyStateImageView.contentMode = .scaleAspectFit
            emptyStateImageView.isUserInteractionEnabled = true // 允许用户交互
-           
+        emptyStateImageView.isHidden = true
            // 添加点击手势
            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(createNewDiary))
            emptyStateImageView.addGestureRecognizer(tapGesture)
@@ -83,13 +82,15 @@ class ViewController: BaseViewController, UITableViewDelegate, UITableViewDataSo
            // 将图片视图添加到主视图中
            view.addSubview(emptyStateImageView)
 
-           // 设置 emptyStateImageView 的约束
-           emptyStateImageView.qmakeConstraints { make in
-               make.center.equalToSuperview() // 居中显示
-               make.width.height.equalTo(200) // 你可以根据需要调整大小
-           }
+        emptyStateImageView.snp.makeConstraints { make in
+            make.center.equalToSuperview() // 居中显示
+            make.width.height.equalTo(200) // 你可以根据需要调整大小
+        }
+//        emptyStateImageView.backgroundColor = .random
         
         loadDiaryData()
+        
+//        tableView.isHidden = true
     }
     
     @objc func createNewDiary() {
@@ -221,7 +222,9 @@ class ViewController: BaseViewController, UITableViewDelegate, UITableViewDataSo
                   // 显示 emptyStateImageView
                   emptyStateImageView.isHidden = false
                   // 插入一条默认的介绍性日记
-                  addDefaultIntroductionForNewUsers()
+//                  addDefaultIntroductionForNewUsers()
+                  
+                  view.bringSubviewToFront(emptyStateImageView)
               } else {
                   // 隐藏 emptyStateImageView
                   emptyStateImageView.isHidden = true
