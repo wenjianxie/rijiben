@@ -8,9 +8,11 @@ target 'RZRichTextView_Example' do
   pod 'Kingfisher'
   
   pod 'JXPhotoBrowser'
-	pod 'RealmSwift'
+  pod 'RealmSwift'
   pod 'BRPickerView'
   pod 'MJRefresh'
+ pod 'LLScreenLock', :git => 'https://github.com/ZHK1024/LLScreenLock.git'
+
   target 'RZRichTextView_Tests' do
     inherit! :search_paths
 

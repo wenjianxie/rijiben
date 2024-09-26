@@ -3,4 +3,84 @@
    uuid = "7D49C7BB-A49E-4623-940A-DA54A4780191"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "79283764-4A2B-45B8-9E84-B1303979ABA3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/LLScreenLock/LLScreenLock/Classes/Controller/LLScreenLockViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "229"
+            endingLineNumber = "229"
+            landmarkName = "closeQueue"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B4BB39A2-A4AF-4BB4-B301-FB593AE180F2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/LLScreenLock/LLScreenLock/Classes/Controller/LLScreenLockViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
+            landmarkName = "dismiss(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B4BB39A2-A4AF-4BB4-B301-FB593AE180F2 - 7a31ec49e7a19ef7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 () -&gt; () in LLScreenLock.LLScreenLockViewController.dismiss(Swift.Double) -&gt; ()"
+                  moduleName = "LLScreenLock"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macer/rijiben3/Example/Pods/LLScreenLock/LLScreenLock/Classes/Controller/LLScreenLockViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "128"
+                  endingLineNumber = "128">
+               </Location>
+               <Location
+                  uuid = "B4BB39A2-A4AF-4BB4-B301-FB593AE180F2 - a4a4e0ec4ad7663b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #3 (Swift.Bool) -&gt; () in LLScreenLock.LLScreenLockViewController.dismiss(Swift.Double) -&gt; ()"
+                  moduleName = "LLScreenLock"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macer/rijiben3/Example/Pods/LLScreenLock/LLScreenLock/Classes/Controller/LLScreenLockViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "129"
+                  endingLineNumber = "129">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DDBCD0A1-096A-481A-9884-A02D204A6F21"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/LLScreenLock/LLScreenLock/Classes/Controller/LLScreenLockViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "291"
+            endingLineNumber = "291"
+            landmarkName = "resetQueue"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
