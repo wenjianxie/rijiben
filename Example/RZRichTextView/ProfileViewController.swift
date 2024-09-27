@@ -33,6 +33,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
+        
+        tableView.reloadData()
     }
 
     
@@ -114,6 +116,9 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         if indexPath.row == 4 {
             cell.myswitch.isHidden = false
             cell.arrowImgeView.isHidden = true
+            let isSecurityEnabled = UserDefaults.standard.bool(forKey: "isSecurityEnabled")
+            
+            cell.myswitch.isOn = isSecurityEnabled
         }else {
             cell.myswitch.isHidden = true
             cell.arrowImgeView.isHidden = false

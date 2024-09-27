@@ -14,22 +14,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>JXPatternLock.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>JXPhotoBrowser.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>Kingfisher.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>LLScreenLock-LLScreenLock.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>LLScreenLock.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

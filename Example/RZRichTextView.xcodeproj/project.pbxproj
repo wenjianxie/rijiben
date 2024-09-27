@@ -37,6 +37,20 @@
 		17FB15C22CA555740048B98C /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FB15C12CA555740048B98C /* EditProfileViewController.swift */; };
 		17FB15C42CA559E50048B98C /* AgreementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FB15C32CA559E50048B98C /* AgreementViewController.swift */; };
 		17FB15C62CA55DD70048B98C /* SecurityQuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FB15C52CA55DD70048B98C /* SecurityQuestionsViewController.swift */; };
+		17FB15C82CA6688B0048B98C /* PasswordConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FB15C72CA6688B0048B98C /* PasswordConfigViewController.swift */; };
+		17FB15CA2CA668980048B98C /* ExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FB15C92CA668980048B98C /* ExampleViewController.swift */; };
+		17FB15CC2CA668A60048B98C /* PasswordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FB15CB2CA668A60048B98C /* PasswordManager.swift */; };
+		17FB15D82CA668C40048B98C /* ArrowConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FB15CD2CA668C40048B98C /* ArrowConfig.swift */; };
+		17FB15D92CA668C40048B98C /* FishLineConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FB15CE2CA668C40048B98C /* FishLineConfig.swift */; };
+		17FB15DA2CA668C40048B98C /* GrayRoundConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FB15CF2CA668C40048B98C /* GrayRoundConfig.swift */; };
+		17FB15DB2CA668C40048B98C /* ImageConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FB15D02CA668C40048B98C /* ImageConfig.swift */; };
+		17FB15DC2CA668C40048B98C /* ImageLineConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FB15D12CA668C40048B98C /* ImageLineConfig.swift */; };
+		17FB15DD2CA668C40048B98C /* NightBlueConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FB15D22CA668C40048B98C /* NightBlueConfig.swift */; };
+		17FB15DE2CA668C40048B98C /* RotateImageConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FB15D32CA668C40048B98C /* RotateImageConfig.swift */; };
+		17FB15DF2CA668C40048B98C /* ShadowConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FB15D42CA668C40048B98C /* ShadowConfig.swift */; };
+		17FB15E02CA668C40048B98C /* WhiteFillConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FB15D52CA668C40048B98C /* WhiteFillConfig.swift */; };
+		17FB15E12CA668C40048B98C /* WhiteRoundConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FB15D62CA668C40048B98C /* WhiteRoundConfig.swift */; };
+		17FB15E32CA6BDB50048B98C /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FB15E22CA6BDB50048B98C /* UserManager.swift */; };
 		5BCE247EA8F0D795F999E017 /* Pods_RZRichTextView_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C0FE6C166E24BCECD07B8C6 /* Pods_RZRichTextView_Tests.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
@@ -95,6 +109,20 @@
 		17FB15C12CA555740048B98C /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		17FB15C32CA559E50048B98C /* AgreementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreementViewController.swift; sourceTree = "<group>"; };
 		17FB15C52CA55DD70048B98C /* SecurityQuestionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityQuestionsViewController.swift; sourceTree = "<group>"; };
+		17FB15C72CA6688B0048B98C /* PasswordConfigViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordConfigViewController.swift; sourceTree = "<group>"; };
+		17FB15C92CA668980048B98C /* ExampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleViewController.swift; sourceTree = "<group>"; };
+		17FB15CB2CA668A60048B98C /* PasswordManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordManager.swift; sourceTree = "<group>"; };
+		17FB15CD2CA668C40048B98C /* ArrowConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrowConfig.swift; sourceTree = "<group>"; };
+		17FB15CE2CA668C40048B98C /* FishLineConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FishLineConfig.swift; sourceTree = "<group>"; };
+		17FB15CF2CA668C40048B98C /* GrayRoundConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrayRoundConfig.swift; sourceTree = "<group>"; };
+		17FB15D02CA668C40048B98C /* ImageConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageConfig.swift; sourceTree = "<group>"; };
+		17FB15D12CA668C40048B98C /* ImageLineConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLineConfig.swift; sourceTree = "<group>"; };
+		17FB15D22CA668C40048B98C /* NightBlueConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NightBlueConfig.swift; sourceTree = "<group>"; };
+		17FB15D32CA668C40048B98C /* RotateImageConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotateImageConfig.swift; sourceTree = "<group>"; };
+		17FB15D42CA668C40048B98C /* ShadowConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowConfig.swift; sourceTree = "<group>"; };
+		17FB15D52CA668C40048B98C /* WhiteFillConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WhiteFillConfig.swift; sourceTree = "<group>"; };
+		17FB15D62CA668C40048B98C /* WhiteRoundConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WhiteRoundConfig.swift; sourceTree = "<group>"; };
+		17FB15E22CA6BDB50048B98C /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		3D630A2A4352A67F32D7C55C /* Pods-RZRichTextView_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RZRichTextView_Tests.debug.xcconfig"; path = "Target Support Files/Pods-RZRichTextView_Tests/Pods-RZRichTextView_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		41BF27BAD5B83D7B0517DA18 /* Pods-RZRichTextView_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RZRichTextView_Example.release.xcconfig"; path = "Target Support Files/Pods-RZRichTextView_Example/Pods-RZRichTextView_Example.release.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* RZRichTextView_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RZRichTextView_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -159,6 +187,23 @@
 				17FB153C2C95256F0048B98C /* UIView+Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		17FB15D72CA668C40048B98C /* Configs */ = {
+			isa = PBXGroup;
+			children = (
+				17FB15CD2CA668C40048B98C /* ArrowConfig.swift */,
+				17FB15CE2CA668C40048B98C /* FishLineConfig.swift */,
+				17FB15CF2CA668C40048B98C /* GrayRoundConfig.swift */,
+				17FB15D02CA668C40048B98C /* ImageConfig.swift */,
+				17FB15D12CA668C40048B98C /* ImageLineConfig.swift */,
+				17FB15D22CA668C40048B98C /* NightBlueConfig.swift */,
+				17FB15D32CA668C40048B98C /* RotateImageConfig.swift */,
+				17FB15D42CA668C40048B98C /* ShadowConfig.swift */,
+				17FB15D52CA668C40048B98C /* WhiteFillConfig.swift */,
+				17FB15D62CA668C40048B98C /* WhiteRoundConfig.swift */,
+			);
+			path = Configs;
 			sourceTree = "<group>";
 		};
 		607FACC71AFB9204008FA782 = {
@@ -244,6 +289,7 @@
 		B2B1FD2B2A6E503200A6A3A2 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				17FB15D72CA668C40048B98C /* Configs */,
 				17FB15502C9525770048B98C /* Extension */,
 				B2B1FD2C2A6E505000A6A3A2 /* NormalViewController.swift */,
 				B2B1FD3A2A70C2D700A6A3A2 /* HTML2AttrViewController.swift */,
@@ -267,6 +313,10 @@
 				17FB15C12CA555740048B98C /* EditProfileViewController.swift */,
 				17FB15C32CA559E50048B98C /* AgreementViewController.swift */,
 				17FB15C52CA55DD70048B98C /* SecurityQuestionsViewController.swift */,
+				17FB15C72CA6688B0048B98C /* PasswordConfigViewController.swift */,
+				17FB15C92CA668980048B98C /* ExampleViewController.swift */,
+				17FB15CB2CA668A60048B98C /* PasswordManager.swift */,
+				17FB15E22CA6BDB50048B98C /* UserManager.swift */,
 			);
 			name = Demo;
 			sourceTree = "<group>";
@@ -437,9 +487,9 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-RZRichTextView_Example/Pods-RZRichTextView_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/BRPickerView/BRPickerView.framework",
+				"${BUILT_PRODUCTS_DIR}/JXPatternLock/JXPatternLock.framework",
 				"${BUILT_PRODUCTS_DIR}/JXPhotoBrowser/JXPhotoBrowser.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
-				"${BUILT_PRODUCTS_DIR}/LLScreenLock/LLScreenLock.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/QuicklySwift/QuicklySwift.framework",
 				"${BUILT_PRODUCTS_DIR}/RZColorfulSwift/RZColorfulSwift.framework",
@@ -452,9 +502,9 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BRPickerView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JXPatternLock.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JXPhotoBrowser.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LLScreenLock.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QuicklySwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RZColorfulSwift.framework",
@@ -476,40 +526,54 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17FB15DA2CA668C40048B98C /* GrayRoundConfig.swift in Sources */,
 				17FB15392C8EEF010048B98C /* RealmManager.swift in Sources */,
 				17FB155C2C9D17940048B98C /* AudioPlayerManager.swift in Sources */,
+				17FB15DE2CA668C40048B98C /* RotateImageConfig.swift in Sources */,
 				17FB15482C95256F0048B98C /* String+Chinese.swift in Sources */,
 				B289C21E2A7B7D2600D6CEC5 /* LabelLoadHtmlViewController.swift in Sources */,
 				17FB15492C95256F0048B98C /* Int+Extensions.swift in Sources */,
 				17FB15522C9527500048B98C /* CGFloatExtensions.swift in Sources */,
 				17FB154C2C95256F0048B98C /* UIColor+Extensions.swift in Sources */,
+				17FB15D92CA668C40048B98C /* FishLineConfig.swift in Sources */,
 				B22BB38F2AE236C40059A609 /* NormalTestViewController.swift in Sources */,
 				17FB15462C95256F0048B98C /* UIView+Extension.swift in Sources */,
 				17FB155A2C9ADEA80048B98C /* RecordView.swift in Sources */,
 				17FB155E2C9D290C0048B98C /* AudioPlayerViewController.swift in Sources */,
 				B2DBFBC12AD4ED38001AA5C9 /* TableViewViewController.swift in Sources */,
 				17FB154E2C95256F0048B98C /* UIDevice.swift in Sources */,
+				17FB15CA2CA668980048B98C /* ExampleViewController.swift in Sources */,
 				17FB15B82CA409290048B98C /* TabBarViewController.swift in Sources */,
 				17FB15602CA15E470048B98C /* BaseViewController.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				17FB15DB2CA668C40048B98C /* ImageConfig.swift in Sources */,
 				17FB153B2C9033D20048B98C /* JournalCell.swift in Sources */,
 				17FB154D2C95256F0048B98C /* SwiftNormal.swift in Sources */,
 				B289C2262A81CB7D00D6CEC5 /* TestViewController.swift in Sources */,
 				17FB15472C95256F0048B98C /* StringExtensions.swift in Sources */,
+				17FB15DF2CA668C40048B98C /* ShadowConfig.swift in Sources */,
+				17FB15DD2CA668C40048B98C /* NightBlueConfig.swift in Sources */,
 				B289C2182A78B0FB00D6CEC5 /* HowToUseDemo.swift in Sources */,
+				17FB15E12CA668C40048B98C /* WhiteRoundConfig.swift in Sources */,
 				17FB15C02CA5519E0048B98C /* ProfileTableViewCell.swift in Sources */,
 				B2B1FD3B2A70C2D700A6A3A2 /* HTML2AttrViewController.swift in Sources */,
+				17FB15CC2CA668A60048B98C /* PasswordManager.swift in Sources */,
 				17FB154F2C95256F0048B98C /* String+Extension.swift in Sources */,
+				17FB15D82CA668C40048B98C /* ArrowConfig.swift in Sources */,
 				1721E5232C81C62600CDFF6C /* VideoCell.swift in Sources */,
+				17FB15C82CA6688B0048B98C /* PasswordConfigViewController.swift in Sources */,
 				17FB15BA2CA41DF00048B98C /* ProfileViewController.swift in Sources */,
 				B2B1FD2D2A6E505000A6A3A2 /* NormalViewController.swift in Sources */,
+				17FB15DC2CA668C40048B98C /* ImageLineConfig.swift in Sources */,
 				17FB15562C9527850048B98C /* Constant.swift in Sources */,
 				17FB15C22CA555740048B98C /* EditProfileViewController.swift in Sources */,
+				17FB15E02CA668C40048B98C /* WhiteFillConfig.swift in Sources */,
 				1721E5252C81D8CE00CDFF6C /* VideoPlayerViewController.swift in Sources */,
 				17FB15542C95276C0048B98C /* URL+Extension.swift in Sources */,
 				B289C21A2A78B48D00D6CEC5 /* CustomRichTextViewController.swift in Sources */,
 				17FB154A2C95256F0048B98C /* EZ.swift in Sources */,
 				17FB15582C956FF00048B98C /* Date+Extension.swift in Sources */,
+				17FB15E32CA6BDB50048B98C /* UserManager.swift in Sources */,
 				17FB15BE2CA50E280048B98C /* ProfileHeaderView.swift in Sources */,
 				17FB15C42CA559E50048B98C /* AgreementViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,

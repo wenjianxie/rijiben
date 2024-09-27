@@ -11,7 +11,8 @@ target 'RZRichTextView_Example' do
   pod 'RealmSwift'
   pod 'BRPickerView'
   pod 'MJRefresh'
- pod 'LLScreenLock', :git => 'https://github.com/ZHK1024/LLScreenLock.git'
+  pod 'JXPatternLock'
+ 
 
   target 'RZRichTextView_Tests' do
     inherit! :search_paths

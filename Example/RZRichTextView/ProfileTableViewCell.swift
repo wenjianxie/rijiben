@@ -7,8 +7,7 @@
 //
 
 import UIKit
-import LLScreenLock
-
+import JXPatternLock
 class TableViewCell: UITableViewCell {
 
 
@@ -71,39 +70,31 @@ class ProfileTableViewCell: TableViewCell {
             make.right.equalToSuperview().offset(-24)
             make.centerY.equalTo(titleLable)
             make.width.height.equalTo(40)
-                                 
         }
         myswitch.isHidden = true
+        
+        let isSecurityEnabled = UserDefaults.standard.bool(forKey: "isSecurityEnabled")
+        myswitch.isOn = isSecurityEnabled
     }
     
     @objc func switchValueChanged(_ sender: UISwitch) {
         
-        /*
-         
-         let vc = SecurityQuestionsViewController()
-         vc.title = "设置密保问题"
-         vc.hidesBottomBarWhenPushed = true
-         navigationController?.pushViewController(vc, animated: true)
-         **/
-        
         if sender.isOn {
             // 开关打开时的操作
-            print("Switch is ON")
-//            LLScreenLock.lock(.new, type: .gesture, target: ez.topMostVC?.navigationController) {
-//
-//            }
-            
-            print("代码解锁了")
-            
             let vc = SecurityQuestionsViewController()
             vc.title = "设置密保问题"
             vc.hidesBottomBarWhenPushed = true
             ez.topMostVC?.navigationController?.pushViewController(vc, animated: true)
-           
+            
         } else {
             // 开关关闭时的操作
             print("Switch is OFF")
+            sender.isOn = true 
+            let vc = PasswordConfigViewController(config:  ArrowConfig(), type: .vertify)
+            vc.pushType = 1
+            ez.topMostVC?.navigationController?.pushViewController(vc, animated: true)
         }
+        
+       
     }
-
 }

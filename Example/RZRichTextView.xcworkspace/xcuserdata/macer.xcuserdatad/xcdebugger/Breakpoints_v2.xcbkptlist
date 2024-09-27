@@ -14,8 +14,8 @@
             filePath = "Pods/LLScreenLock/LLScreenLock/Classes/Controller/LLScreenLockViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "229"
-            endingLineNumber = "229"
+            startingLineNumber = "236"
+            endingLineNumber = "236"
             landmarkName = "closeQueue"
             landmarkType = "24">
          </BreakpointContent>
@@ -30,13 +30,13 @@
             filePath = "Pods/LLScreenLock/LLScreenLock/Classes/Controller/LLScreenLockViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
+            startingLineNumber = "131"
+            endingLineNumber = "131"
             landmarkName = "dismiss(_:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "B4BB39A2-A4AF-4BB4-B301-FB593AE180F2 - 7a31ec49e7a19ef7"
+                  uuid = "B4BB39A2-A4AF-4BB4-B301-FB593AE180F2 - 7a31ec49e7a19e58"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -46,11 +46,11 @@
                   urlString = "file:///Users/macer/rijiben3/Example/Pods/LLScreenLock/LLScreenLock/Classes/Controller/LLScreenLockViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "128"
-                  endingLineNumber = "128">
+                  startingLineNumber = "131"
+                  endingLineNumber = "131">
                </Location>
                <Location
-                  uuid = "B4BB39A2-A4AF-4BB4-B301-FB593AE180F2 - a4a4e0ec4ad7663b"
+                  uuid = "B4BB39A2-A4AF-4BB4-B301-FB593AE180F2 - a4a4e0ec4ad766d6"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -60,8 +60,8 @@
                   urlString = "file:///Users/macer/rijiben3/Example/Pods/LLScreenLock/LLScreenLock/Classes/Controller/LLScreenLockViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "129"
-                  endingLineNumber = "129">
+                  startingLineNumber = "132"
+                  endingLineNumber = "132">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -76,9 +76,25 @@
             filePath = "Pods/LLScreenLock/LLScreenLock/Classes/Controller/LLScreenLockViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "291"
-            endingLineNumber = "291"
+            startingLineNumber = "298"
+            endingLineNumber = "298"
             landmarkName = "resetQueue"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3782E8FD-4477-4CCC-B41E-AF350251D389"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/LLScreenLock/LLScreenLock/Classes/Controller/LLScreenLockViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "240"
+            endingLineNumber = "240"
+            landmarkName = "closeQueue"
             landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>

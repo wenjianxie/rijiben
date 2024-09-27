@@ -57,8 +57,10 @@ class EditProfileViewController: BaseViewController {
     }
     
     @objc override func customBackAction() {
-        self.navigationController?.popViewController(animated: true)
+        
         delegate?.editProfile()
+        self.navigationController?.popViewController(animated: true)
+     
     }
     
     private func loadCurrentProfile() {
@@ -71,7 +73,7 @@ class EditProfileViewController: BaseViewController {
         // 保存到持久化存储
         UserDefaults.standard.set(nameTextField.text, forKey: "nickname")
         UserDefaults.standard.set(signatureTextField.text, forKey: "signature")
-        
+        delegate?.editProfile()
         navigationController?.popViewController(animated: true)
     }
 }

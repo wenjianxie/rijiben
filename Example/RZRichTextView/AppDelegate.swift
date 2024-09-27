@@ -19,9 +19,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         let rootVc = TabBarViewController()
-//        let meNav1 = UINavigationController(rootViewController: rootVc)
-        window?.rootViewController = rootVc
+        //        let meNav1 = UINavigationController(rootViewController: rootVc)
         
+        let isSecurityEnabled = UserDefaults.standard.bool(forKey: "isSecurityEnabled")
+        
+        if isSecurityEnabled == true {
+            let vc = PasswordConfigViewController(config:  ArrowConfig(), type: .vertify)
+            
+            let nav1 = UINavigationController(rootViewController: vc)
+            window?.rootViewController = nav1
+        }else {
+            window?.rootViewController = rootVc
+        }
+               
         window?.makeKeyAndVisible()
         return true
     }
@@ -33,11 +43,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits
+        
+        
+        print("这里是进入后台")
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+        
+        print("这里是热启动")
+        
+        
+        let isSecurityEnabled = UserDefaults.standard.bool(forKey: "isSecurityEnabled")
+        
+        if isSecurityEnabled == true {
+            let vc = PasswordConfigViewController(config:  ArrowConfig(), type: .vertify)
+            vc.pushType = 0
+            let nav1 = UINavigationController(rootViewController: vc)
+            
+            window?.rootViewController = nav1
+        }
+        
+      
+//        ez.topMostVC?.navigationController?.pushViewController(vc, animated: true)
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {

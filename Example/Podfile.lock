@@ -25,9 +25,9 @@ PODS:
     - BRPickerView/Deprecated/Base
   - BRPickerView/TextPicker (2.9.1):
     - BRPickerView/Core
+  - JXPatternLock (0.0.10)
   - JXPhotoBrowser (3.1.5)
   - Kingfisher (6.3.1)
-  - LLScreenLock (0.1.1)
   - MJRefresh (3.7.6)
   - QuicklySwift (0.9.0):
     - SnapKit
@@ -51,9 +51,9 @@ PODS:
 
 DEPENDENCIES:
   - BRPickerView
+  - JXPatternLock
   - JXPhotoBrowser
   - Kingfisher
-  - LLScreenLock (from `https://github.com/ZHK1024/LLScreenLock.git`)
   - MJRefresh
   - RealmSwift
   - RZRichTextView
@@ -62,6 +62,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - BRPickerView
+    - JXPatternLock
     - JXPhotoBrowser
     - Kingfisher
     - MJRefresh
@@ -73,20 +74,11 @@ SPEC REPOS:
     - SnapKit
     - TZImagePickerController
 
-EXTERNAL SOURCES:
-  LLScreenLock:
-    :git: https://github.com/ZHK1024/LLScreenLock.git
-
-CHECKOUT OPTIONS:
-  LLScreenLock:
-    :commit: 04bbe8639bfe72806fbaeb0ad73af94efed72bf4
-    :git: https://github.com/ZHK1024/LLScreenLock.git
-
 SPEC CHECKSUMS:
   BRPickerView: 6dd69ea2c48e0a0abf1d197a705050e13143ee63
+  JXPatternLock: b83a03952074bb04dc330325928c166d78cfa414
   JXPhotoBrowser: a6d745f5711bde79b02ba29165e2456ab5bde476
   Kingfisher: 016c8b653a35add51dd34a3aba36b580041acc74
-  LLScreenLock: 9d737d2d9bf4da773c8daac6e2a7d085ed71bb04
   MJRefresh: 2fe7fb43a5167ceda20bb7e63f130c04fd1814a5
   QuicklySwift: 817e8e5f55ea6bd1932b02db75b1af515c3ace81
   Realm: c1a96376972e5f6c26276a0cd6dee15eeefaf53c
@@ -96,6 +88,6 @@ SPEC CHECKSUMS:
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   TZImagePickerController: 5f35bb7266552e36ca834bafa955b869fe086124
 
-PODFILE CHECKSUM: b11be9bdd54e4db0d15cd055b5b7ef53799419ea
+PODFILE CHECKSUM: 48c56feac3766d37d8cac68a0e5615fe51934b3a
 
 COCOAPODS: 1.15.2

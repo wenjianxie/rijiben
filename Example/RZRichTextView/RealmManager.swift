@@ -75,6 +75,19 @@ class RealmManager {
              realm.delete(article)
          }
      }
+    
+    
+    // 删除所有文章
+    func deleteAllArticles() {
+        do {
+            try realm.write {
+                let allArticles = realm.objects(Article.self)
+                realm.delete(allArticles)
+            }
+        } catch {
+            print("Error deleting all articles: \(error.localizedDescription)")
+        }
+    }
 }
 
 class Article: Object {

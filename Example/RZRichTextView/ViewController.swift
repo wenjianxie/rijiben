@@ -12,6 +12,9 @@ import SwiftUI
 import Kingfisher
 import BRPickerView
 import MJRefresh
+func colorWithRGBA(r: Int, g: Int, b: Int, a: CGFloat) -> UIColor {
+    return UIColor(red: CGFloat(r)/255, green: CGFloat(g)/255, blue: CGFloat(b)/255, alpha: a)
+}
 
 class ViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     
