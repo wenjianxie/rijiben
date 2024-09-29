@@ -69,7 +69,7 @@ open class RZInputAccessoryView: UIView {
                 self?.clicked?(items?[qsafe: indexPath.row])
             }
         
-        collectionView.backgroundColor = .red
+//        collectionView.backgroundColor = .red
         self.reloadData()
     }
     

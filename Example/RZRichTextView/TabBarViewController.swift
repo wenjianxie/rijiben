@@ -25,9 +25,18 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
         meCtr1.tabBarItem.title = "我的"
         meCtr1.tabBarItem.image = "tab_icon_me".image
         meCtr1.tabBarItem.selectedImage = "tab_icon_me".image
+        
+        
         let meNav1 = UINavigationController.init(rootViewController: meCtr1)
         
         self.viewControllers = [AICtrNav,meNav1]
+        
+        tabBar.tintColor = .k16Color
+        tabBar.unselectedItemTintColor = UIColor.init(hex: 0xC0C4C9)
+        
+        // 设置文本颜色
+        UITabBarItem.appearance().setTitleTextAttributes([.foregroundColor: UIColor.gray], for: .normal)
+        UITabBarItem.appearance().setTitleTextAttributes([.foregroundColor: UIColor.k16Color], for: .selected)
     }
 
 }

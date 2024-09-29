@@ -2,10 +2,14 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSCameraUsageDescription</key>
-	<string>想获取您的相机权限</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>app想访问您的相册，用于读取和写入相册内容及属性信息，帮助存储拍摄、如果您想要上传他人的图片，请您在上传前取得当事人同意后再进行操作，以免出现肖像权问题等隐私纠纷。如您不允许，将无法正常存储内容。</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>app想访问您的相册，用于读取和写入相册内容及属性信息，帮助存储拍摄、如果您想要上传他人的图片，请您在上传前取得当事人同意后再进行操作，以免出现肖像权问题等隐私纠纷。如您不允许，将无法正常存储内容。</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
+		<key>NSCameraUsageDescription</key>
+		<string>需要您的同意，才能访问相机进行拍摄，如禁止将无法为您拍摄精美图片</string>
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 		<key>NSExceptionDomains</key>
@@ -59,8 +63,6 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>相册权限</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -75,6 +77,6 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 	</array>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>我们需要访问麦克风来录制音频。</string>
+	<string>App需要您的同意,才能访问麦克风来录制音频。</string>
 </dict>
 </plist>

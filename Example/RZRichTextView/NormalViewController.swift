@@ -9,9 +9,13 @@
 import UIKit
 import QuicklySwift
 import RZRichTextView
+protocol NormalViewControllerDelegate:NSObjectProtocol {
+    func releaseArticle()
+}
 
 class NormalViewController: BaseViewController {
     
+    weak var delegate:NormalViewControllerDelegate?
     
     var article:Article?
     let textView = RZRichTextView.init(frame: .init(x: 15, y: 0, width: qscreenwidth - 30, height: 300), viewModel: .shared())
@@ -87,6 +91,8 @@ class NormalViewController: BaseViewController {
                         }
                     }
                 }
+                
+                delegate?.releaseArticle()
             }
         
         /// 上传完成时，可以点击

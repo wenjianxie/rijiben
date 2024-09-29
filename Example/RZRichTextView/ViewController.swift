@@ -113,6 +113,11 @@ class ViewController: BaseViewController, UITableViewDelegate, UITableViewDataSo
                let result = RealmManager.shared.getAllArticles()
                self.list = Array(result) // 将 Results<Article> 转换为 [Article]
 
+                if self.list.count > 0 {
+                    self.emptyStateImageView.isHidden = true
+                }else {
+                    self.emptyStateImageView.isHidden = false
+                }
                self.tableView.reloadData()
 
                // 结束刷新
@@ -136,6 +141,7 @@ class ViewController: BaseViewController, UITableViewDelegate, UITableViewDataSo
 
     @objc func clickAddBtn() {
         let vc = NormalViewController()
+        vc.delegate = self
         self.navigationController?.pushViewController(vc, animated: true)
     }
 
@@ -291,3 +297,9 @@ class ViewController: BaseViewController, UITableViewDelegate, UITableViewDataSo
 
 
 
+
+extension ViewController:NormalViewControllerDelegate {
+    func releaseArticle() {
+        loadDiaryData()
+    }
+}
