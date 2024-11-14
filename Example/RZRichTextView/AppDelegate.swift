@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if isSecurityEnabled == true {
             let vc = PasswordConfigViewController(config:  ArrowConfig(), type: .vertify)
             
-            let nav1 = UINavigationController(rootViewController: vc)
+            let nav1 = NavigationController(rootViewController: vc)
             window?.rootViewController = nav1
         }else {
             window?.rootViewController = rootVc

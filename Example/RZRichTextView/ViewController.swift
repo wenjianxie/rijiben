@@ -98,6 +98,8 @@ class ViewController: BaseViewController, UITableViewDelegate, UITableViewDataSo
     
     @objc func createNewDiary() {
         let vc = NormalViewController() // 创建新的日记界面的控制器
+        vc.hidesBottomBarWhenPushed = true
+        
         self.navigationController?.pushViewController(vc, animated: true)
     }
 
@@ -141,6 +143,7 @@ class ViewController: BaseViewController, UITableViewDelegate, UITableViewDataSo
 
     @objc func clickAddBtn() {
         let vc = NormalViewController()
+        vc.hidesBottomBarWhenPushed = true
         vc.delegate = self
         self.navigationController?.pushViewController(vc, animated: true)
     }
@@ -209,6 +212,7 @@ class ViewController: BaseViewController, UITableViewDelegate, UITableViewDataSo
             let html = self.list[indexPath.row].html
             vc.textView.html2Attributedstring(html: html)
             vc.article = self.list[indexPath.row]
+            vc.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }

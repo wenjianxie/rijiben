@@ -18,7 +18,7 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
         AICtr.title = "日记"
         AICtr.tabBarItem.image = "tab_icon_book".image
         AICtr.tabBarItem.selectedImage = "tab_icon_book".image
-        let AICtrNav = UINavigationController.init(rootViewController: AICtr)
+        let AICtrNav = NavigationController.init(rootViewController: AICtr)
 
         let meCtr1 = ProfileViewController()
 //        meCtr1.title = "我的"
@@ -27,7 +27,7 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
         meCtr1.tabBarItem.selectedImage = "tab_icon_me".image
         
         
-        let meNav1 = UINavigationController.init(rootViewController: meCtr1)
+        let meNav1 = NavigationController.init(rootViewController: meCtr1)
         
         self.viewControllers = [AICtrNav,meNav1]
         

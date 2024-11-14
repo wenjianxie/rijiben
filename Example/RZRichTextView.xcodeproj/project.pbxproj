@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1721E5232C81C62600CDFF6C /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1721E5222C81C62600CDFF6C /* VideoCell.swift */; };
 		1721E5252C81D8CE00CDFF6C /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1721E5242C81D8CE00CDFF6C /* VideoPlayerViewController.swift */; };
+		178A37432CE5E34F0028B263 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178A37422CE5E34F0028B263 /* NavigationController.swift */; };
 		17FB15392C8EEF010048B98C /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FB15382C8EEF010048B98C /* RealmManager.swift */; };
 		17FB153B2C9033D20048B98C /* JournalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FB153A2C9033D20048B98C /* JournalCell.swift */; };
 		17FB15462C95256F0048B98C /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FB153C2C95256F0048B98C /* UIView+Extension.swift */; };
@@ -78,9 +79,23 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		178A373A2CE3409D0028B263 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		1721E5222C81C62600CDFF6C /* VideoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
 		1721E5242C81D8CE00CDFF6C /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
+		178A37422CE5E34F0028B263 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		17FB15382C8EEF010048B98C /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		17FB153A2C9033D20048B98C /* JournalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalCell.swift; sourceTree = "<group>"; };
 		17FB153C2C95256F0048B98C /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
@@ -125,7 +140,7 @@
 		17FB15E22CA6BDB50048B98C /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		3D630A2A4352A67F32D7C55C /* Pods-RZRichTextView_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RZRichTextView_Tests.debug.xcconfig"; path = "Target Support Files/Pods-RZRichTextView_Tests/Pods-RZRichTextView_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		41BF27BAD5B83D7B0517DA18 /* Pods-RZRichTextView_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RZRichTextView_Example.release.xcconfig"; path = "Target Support Files/Pods-RZRichTextView_Example/Pods-RZRichTextView_Example.release.xcconfig"; sourceTree = "<group>"; };
-		607FACD01AFB9204008FA782 /* RZRichTextView_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RZRichTextView_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		607FACD01AFB9204008FA782 /* 私密日记本.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "私密日记本.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		607FACD71AFB9204008FA782 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -221,7 +236,7 @@
 		607FACD11AFB9204008FA782 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				607FACD01AFB9204008FA782 /* RZRichTextView_Example.app */,
+				607FACD01AFB9204008FA782 /* 私密日记本.app */,
 				607FACE51AFB9204008FA782 /* RZRichTextView_Tests.xctest */,
 			);
 			name = Products;
@@ -233,6 +248,7 @@
 				B2B1FD2B2A6E503200A6A3A2 /* Demo */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
+				178A37422CE5E34F0028B263 /* NavigationController.swift */,
 				17FB153A2C9033D20048B98C /* JournalCell.swift */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				17FB15BB2CA5037B0048B98C /* header_defult.jpg */,
@@ -342,6 +358,7 @@
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
 				88C62834C615A48B43692486 /* [CP] Embed Pods Frameworks */,
+				178A373A2CE3409D0028B263 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
@@ -349,7 +366,7 @@
 			);
 			name = RZRichTextView_Example;
 			productName = RZRichTextView;
-			productReference = 607FACD01AFB9204008FA782 /* RZRichTextView_Example.app */;
+			productReference = 607FACD01AFB9204008FA782 /* 私密日记本.app */;
 			productType = "com.apple.product-type.application";
 		};
 		607FACE41AFB9204008FA782 /* RZRichTextView_Tests */ = {
@@ -377,14 +394,15 @@
 		607FACC81AFB9204008FA782 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0830;
+				LastSwiftUpdateCheck = 1530;
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = 2ZSH2796G5;
+						DevelopmentTeam = ZFJ3GTSF26;
 						LastSwiftMigration = 0900;
+						ProvisioningStyle = Automatic;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -539,6 +557,7 @@
 				B22BB38F2AE236C40059A609 /* NormalTestViewController.swift in Sources */,
 				17FB15462C95256F0048B98C /* UIView+Extension.swift in Sources */,
 				17FB155A2C9ADEA80048B98C /* RecordView.swift in Sources */,
+				178A37432CE5E34F0028B263 /* NavigationController.swift in Sources */,
 				17FB155E2C9D290C0048B98C /* AudioPlayerViewController.swift in Sources */,
 				B2DBFBC12AD4ED38001AA5C9 /* TableViewViewController.swift in Sources */,
 				17FB154E2C95256F0048B98C /* UIDevice.swift in Sources */,
@@ -716,14 +735,17 @@
 			baseConfigurationReference = 8D54757EF00239AD9298D3AD /* Pods-RZRichTextView_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 2ZSH2796G5;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZFJ3GTSF26;
 				INFOPLIST_FILE = RZRichTextView/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "日记本";
+				INFOPLIST_KEY_CFBundleDisplayName = "私密日记本";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = com.dongneng.Mydemo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = rijiben.com.xie;
+				PRODUCT_NAME = "私密日记本";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
 			};
@@ -734,14 +756,17 @@
 			baseConfigurationReference = 41BF27BAD5B83D7B0517DA18 /* Pods-RZRichTextView_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 2ZSH2796G5;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZFJ3GTSF26;
 				INFOPLIST_FILE = RZRichTextView/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "日记本";
+				INFOPLIST_KEY_CFBundleDisplayName = "私密日记本";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = com.dongneng.Mydemo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = rijiben.com.xie;
+				PRODUCT_NAME = "私密日记本";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
 			};
@@ -779,7 +804,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FF008A67C39722CA3E80D13D /* Pods-RZRichTextView_Tests.release.xcconfig */;
 			buildSettings = {
-				DEVELOPMENT_TEAM = LBSWTUGGNB;
+				DEVELOPMENT_TEAM = ZFJ3GTSF26;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",
